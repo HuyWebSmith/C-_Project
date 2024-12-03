@@ -39,7 +39,18 @@ namespace test1_buoi3
 
         private void lvNhanVien_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (lvNhanVien.SelectedIndices.Count > 0)
+            {
+                ListViewItem lvi = lvNhanVien.SelectedItems[0];
 
+                string firstName = lvi.SubItems[0].Text;
+                string lastName = lvi.SubItems[1].Text;
+                string phone = lvi.SubItems[2].Text;
+
+                txtFirstName.Text = firstName;
+                txtLastName.Text = lastName;
+                txtPhone.Text = phone;
+            }
         }
 
         

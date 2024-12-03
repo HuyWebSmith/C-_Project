@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0F748830-3A2D-4D0B-80FA-A711EE7B50CD}</ProjectGuid>
+    <ProjectGuid>{CBD8FE9D-58F6-4ADD-9981-9B6D1AE85753}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>test1_buoi3</RootNamespace>
-    <AssemblyName>test1_buoi3</AssemblyName>
+    <RootNamespace>Demo3</RootNamespace>
+    <AssemblyName>Demo3</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,40 +46,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dataGridView.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="dataGridView.Designer.cs">
-      <DependentUpon>dataGridView.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDemoMyClass.cs">
+    <Compile Include="frm2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDemoMyClass.Designer.cs">
-      <DependentUpon>frmDemoMyClass.cs</DependentUpon>
+    <Compile Include="frm2.Designer.cs">
+      <DependentUpon>frm2.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmListView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmListView.Designer.cs">
-      <DependentUpon>frmListView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmlog_in.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmlog_in.Designer.cs">
-      <DependentUpon>frmlog_in.cs</DependentUpon>
-    </Compile>
+    <Compile Include="NhanVien.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmDemoMyClass.resx">
-      <DependentUpon>frmDemoMyClass.cs</DependentUpon>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmListView.resx">
-      <DependentUpon>frmListView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmlog_in.resx">
-      <DependentUpon>frmlog_in.cs</DependentUpon>
+    <EmbeddedResource Include="frm2.resx">
+      <DependentUpon>frm2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

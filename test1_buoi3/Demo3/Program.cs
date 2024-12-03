@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace test2_Buoi3
+namespace Demo3
 {
     internal static class Program
     {
@@ -16,7 +16,7 @@ namespace test2_Buoi3
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new dataGridView());
+            Application.Run(new Form1());
         }
     }
 }
