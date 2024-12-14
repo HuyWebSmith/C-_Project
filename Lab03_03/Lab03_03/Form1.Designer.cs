@@ -35,13 +35,13 @@
             this.thêmMớiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.txtTimKiem = new System.Windows.Forms.ToolStripTextBox();
             this.dgvStudent = new System.Windows.Forms.DataGridView();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -82,14 +82,14 @@
             // 
             this.thêmMớiToolStripMenuItem.Name = "thêmMớiToolStripMenuItem";
             this.thêmMớiToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.thêmMớiToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.thêmMớiToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
             this.thêmMớiToolStripMenuItem.Text = "Thêm mới";
             this.thêmMớiToolStripMenuItem.Click += new System.EventHandler(this.thêmMớiToolStripMenuItem_Click);
             // 
             // thoátToolStripMenuItem
             // 
             this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
             this.thoátToolStripMenuItem.Text = "Thoát";
             this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
             // 
@@ -99,22 +99,25 @@
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             toolStripLabel1,
-            this.toolStripTextBox1});
+            this.txtTimKiem});
             this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(875, 80);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripTextBox1
+            // txtTimKiem
             // 
-            this.toolStripTextBox1.AutoSize = false;
-            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.toolStripTextBox1.Margin = new System.Windows.Forms.Padding(100, 0, 1, 0);
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(300, 80);
-            this.toolStripTextBox1.Tag = "";
-            this.toolStripTextBox1.Text = "Tìm Kiếm Theo Tên";
+            this.txtTimKiem.AutoSize = false;
+            this.txtTimKiem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(100, 0, 1, 0);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(300, 80);
+            this.txtTimKiem.Tag = "";
+            this.txtTimKiem.Text = "Tìm Kiếm Theo Tên";
+            this.txtTimKiem.Leave += new System.EventHandler(this.txtTimKiem_Leave);
+            this.txtTimKiem.Click += new System.EventHandler(this.txtTimKiem_Click);
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
             // dgvStudent
             // 
@@ -132,29 +135,13 @@
             this.dgvStudent.Size = new System.Drawing.Size(875, 339);
             this.dgvStudent.TabIndex = 2;
             // 
-            // Column5
+            // Column1
             // 
-            this.Column5.FillWeight = 24.1971F;
-            this.Column5.HeaderText = "Điểm TB";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 85;
-            // 
-            // Column4
-            // 
-            this.Column4.FillWeight = 24.37989F;
-            this.Column4.HeaderText = "Khoa";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 255;
-            // 
-            // Column3
-            // 
-            this.Column3.FillWeight = 35.51502F;
-            this.Column3.HeaderText = "Tên Sinh Viên";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 255;
+            this.Column1.FillWeight = 14.83844F;
+            this.Column1.HeaderText = "Số TT";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 85;
             // 
             // Column2
             // 
@@ -164,13 +151,29 @@
             this.Column2.Name = "Column2";
             this.Column2.Width = 170;
             // 
-            // Column1
+            // Column3
             // 
-            this.Column1.FillWeight = 14.83844F;
-            this.Column1.HeaderText = "Số TT";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 85;
+            this.Column3.FillWeight = 35.51502F;
+            this.Column3.HeaderText = "Tên Sinh Viên";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 255;
+            // 
+            // Column4
+            // 
+            this.Column4.FillWeight = 24.37989F;
+            this.Column4.HeaderText = "Khoa";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 255;
+            // 
+            // Column5
+            // 
+            this.Column5.FillWeight = 24.1971F;
+            this.Column5.HeaderText = "Điểm TB";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 85;
             // 
             // Form1
             // 
@@ -200,7 +203,7 @@
         private System.Windows.Forms.ToolStripMenuItem thêmMớiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thoátToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripTextBox txtTimKiem;
         private System.Windows.Forms.DataGridView dgvStudent;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
