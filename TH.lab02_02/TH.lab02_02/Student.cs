@@ -22,6 +22,10 @@ namespace TH.lab02_02
             Sdt = sdt;
             ChuyenNganh = chuyenNganh;
         }
+        public Student()
+        {
+           
+        }
 
         public string TenDangNhap { get => tenDangNhap; set => tenDangNhap = value; }
         public string MatKhau { get => matKhau; set => matKhau = value; }

@@ -50,5 +50,10 @@ namespace TH.lab02_02
 
             return username == validUsername && password == validPassword;
         }
+
+        private void dangnhap_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

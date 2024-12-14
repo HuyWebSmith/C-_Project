@@ -12,12 +12,30 @@ namespace TH.lab02_02
 {
     public partial class Form1 : Form
     {
-        
+        private List<Student> list = new List<Student>();
         public Form1()
         {
             InitializeComponent();
         }
+        public void AddDataToGrid(Student student)
+        {
+            list.Add(student);
+            UpdateGridView(list);
 
+        }
+        private void UpdateGridView(List<Student> list)
+        {
+            dgvStudent.Rows.Clear();
+            foreach (var student in list)
+            {
+                int newRowIndex = dgvStudent.Rows.Add();
+                dgvStudent.Rows[newRowIndex].Cells[0].Value = student.TenDangNhap;
+                dgvStudent.Rows[newRowIndex].Cells[1].Value = student.MatKhau;
+                dgvStudent.Rows[newRowIndex].Cells[2].Value = student.HoTen;
+                dgvStudent.Rows[newRowIndex].Cells[3].Value = student.Sdt;
+                dgvStudent.Rows[newRowIndex].Cells[4].Value = student.ChuyenNganh;
+            }
+        }
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -33,7 +51,14 @@ namespace TH.lab02_02
         {
             pn2.Enabled = false;
         }
-
+        private int GetSelectedRow()
+        {
+            if (dgvStudent.CurrentRow != null)
+            {
+                return dgvStudent.CurrentRow.Index;
+            }
+            return -1;
+        }
         private void btnLuu_Click(object sender, EventArgs e)
         {
             pn2.Enabled = false;
@@ -41,56 +66,46 @@ namespace TH.lab02_02
             {
                 if (txtTenDangNhap.Text == "" || txtMatKhau.Text == "" || txtHoTen.Text == "" || txtSDT.Text == "")
                 {
-                    throw new Exception("Vui lòng nhập đủ thông tin.");
+                    throw new Exception("Bắt Buộc Nhập Đầy Đủ Thông Tin!");
                 }
-
-                int selectedRow = GetSelectedRow(txtTenDangNhap.Text);
-                if (selectedRow == -1)
+                int selectedRow = GetSelectedRow();
+                if (selectedRow >= 0) 
                 {
-                    selectedRow = dataGridView1.Rows.Add();
-                    Them(selectedRow);
-                    MessageBox.Show("Thêm dữ liệu thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    
-                    UpdateRow(selectedRow);
-                    MessageBox.Show("Cập nhật dữ liệu thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                    list[selectedRow].MatKhau = txtMatKhau.Text;
+                    list[selectedRow].HoTen = txtHoTen.Text;
+                    list[selectedRow].Sdt = txtSDT.Text;
+                    list[selectedRow].ChuyenNganh = cbNganh.Text;
 
-                
-                ClearInputFields();
+                    UpdateGridView(list);
+                    MessageBox.Show("Cập nhật thành công!", "Thông báo");
+                }
+                else 
+                {
+                    Student student = new Student
+                    {
+                        TenDangNhap = txtTenDangNhap.Text,
+                        MatKhau = txtMatKhau.Text,
+                        HoTen = txtHoTen.Text,
+                        Sdt = txtSDT.Text,
+                        ChuyenNganh = cbNganh.Text
+                    };
+
+                    AddDataToGrid(student);
+                    MessageBox.Show("Thêm mới thành công!", "Thông báo");
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message);
             }
 
-        }
-        private int GetSelectedRow(string txtTenDangNhap)
-        {
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
-            {
-                if (dataGridView1.Rows[i].Cells[0].Value != null && dataGridView1.Rows[i].Cells[0].Value.ToString() == txtTenDangNhap)
-                {
-                    return i;
-                }
-            }
-            return -1;
         }
         private void Form1_Load(object sender, EventArgs e)
         {
             cbNganh.SelectedIndex = 0;
         }
 
-        private void Them(int selectedRow)
-        {
-            dataGridView1.Rows[selectedRow].Cells[0].Value = txtTenDangNhap.Text;
-            dataGridView1.Rows[selectedRow].Cells[1].Value = txtMatKhau.Text;
-            dataGridView1.Rows[selectedRow].Cells[2].Value = txtHoTen.Text;
-            dataGridView1.Rows[selectedRow].Cells[3].Value = txtSDT.Text;
-            dataGridView1.Rows[selectedRow].Cells[4].Value = cbNganh.Text;
-        }
+
         private void ClearInputFields()
         {
             txtTenDangNhap.Text = "";
@@ -104,28 +119,23 @@ namespace TH.lab02_02
         {
             pn2.Enabled = true;
             ClearInputFields();
+
         }
 
-        private void UpdateRow(int rowIndex)
-        {
-            dataGridView1.Rows[rowIndex].Cells[0].Value = txtTenDangNhap.Text;
-            dataGridView1.Rows[rowIndex].Cells[1].Value = txtMatKhau.Text;
-            dataGridView1.Rows[rowIndex].Cells[2].Value = txtHoTen.Text;
-            dataGridView1.Rows[rowIndex].Cells[3].Value = txtSDT.Text;
-            dataGridView1.Rows[rowIndex].Cells[4].Value = cbNganh.Text;
-        }
+
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.CurrentRow != null)
+            if (dgvStudent.CurrentRow != null)
             {
-                int selectedRow = dataGridView1.CurrentRow.Index;
+                int selectedRow = dgvStudent.CurrentRow.Index;
                 if (selectedRow >= 0)
                 {
                     DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa hàng này?", "Xác Nhận", MessageBoxButtons.YesNo);
                     if (result == DialogResult.Yes)
                     {
-                        dataGridView1.Rows.RemoveAt(selectedRow);
+                        list.RemoveAt(selectedRow);
+                        dgvStudent.Rows.RemoveAt(selectedRow);
                         MessageBox.Show("Xóa dữ liệu thành công!", "Thông Báo", MessageBoxButtons.OK);
                     }
                 }
@@ -133,6 +143,21 @@ namespace TH.lab02_02
             else
             {
                 MessageBox.Show("Vui lòng chọn một hàng để xóa.", "Thông Báo", MessageBoxButtons.OK);
+            }
+        }
+
+        private void dgvStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                int selectedRowIndex = e.RowIndex;
+
+                string maNganh = dgvStudent.Rows[selectedRowIndex].Cells[0].Value?.ToString();
+
+                if (!string.IsNullOrEmpty(maNganh))
+                {
+                    MessageBox.Show($"Bạn đã chọn dòng có Mã Ngành: {maNganh}", "Thông Báo");
+                }
             }
         }
     }
