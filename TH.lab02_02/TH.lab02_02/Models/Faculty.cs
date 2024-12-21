@@ -1,29 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TH.lab02_02
+namespace TH.lab02_02.Models
 {
+    [Table("Faculty")]
     public class Faculty
     {
-        private string maNganh;
-        private string tenNganh;
         
+        public string maNganh;
+        public string tenNganh;
+
 
         public Faculty()
         {
 
         }
 
-        public Faculty(string maNganh, string tenNganh, string tenDangNhap, string matKhau, string hoTen, string sdt, string chuyenNganh)
+        public Faculty(string maNganh, string tenNganh)
         {
             MaNganh = maNganh;
             TenNganh = tenNganh;
-            
+
         }
 
+        [Key]
         public string MaNganh { get => maNganh; set => maNganh = value; }
         public string TenNganh { get => tenNganh; set => tenNganh = value; }
     }

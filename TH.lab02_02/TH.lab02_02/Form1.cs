@@ -8,12 +8,14 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TH.lab02_02.Models;
 
 namespace TH.lab02_02
 {
     public partial class Form1 : Form
     {
         private List<Student> listStudent = new List<Student>();
+        private List<Faculty> listFaculty = new List<Faculty>();
         private bool isAdding = true;
         public Form1()
         {
@@ -48,6 +50,7 @@ namespace TH.lab02_02
                 {
                     throw new Exception("Bắt Buộc Nhập Đầy Đủ Thông Tin!");
                 }
+                DBQuanLySinhVienContext context = new DBQuanLySinhVienContext();
                 Student student = new Student()
                 {
                     TenDangNhap = txtTenDangNhap.Text,
@@ -58,6 +61,10 @@ namespace TH.lab02_02
                 };
                 if (isAdding)
                 {
+                    context.student.Add(student);
+                    context.SaveChanges();
+                    List<Faculty> listFacultys = context.faculty.ToList();
+                    List<Student> listStudent = context.student.ToList();
                     AddDataToGrid(student);
                     MessageBox.Show("Thêm Sinh Viên Thành Công");
                 }
@@ -66,8 +73,12 @@ namespace TH.lab02_02
                     int selectedRow = GetSelectedRow();
                     if (selectedRow >= 0)
                     {
+                        //List<Faculty> listFaculty = context.faculty.ToList();
+                        List<Student> listStudent = context.student.ToList();
                         listStudent[selectedRow] = student;
-                        ThemGrid(listStudent);
+                        context.student.Add(student);
+                        context.SaveChanges();
+                        ThemGrid(listStudent,listFaculty);
                         MessageBox.Show("Sửa Sinh Viên Thành Công");
                     }
                     else
@@ -86,10 +97,10 @@ namespace TH.lab02_02
         public void AddDataToGrid(Student student)
         {
             listStudent.Add(student);
-            ThemGrid(listStudent);
+            ThemGrid(listStudent, listFaculty);
 
         }
-        private void ThemGrid(List<Student> listStudent)
+        private void ThemGrid(List<Student> listStudent,List<Faculty> listFaculty)
         {
             dgvStudent.Rows.Clear();
             foreach (var item in listStudent)
@@ -105,8 +116,25 @@ namespace TH.lab02_02
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            try
+            {
+                DBQuanLySinhVienContext context = new DBQuanLySinhVienContext();
+                List<Student> listStudent = context.student.ToList();
+                //FillFacultyCombobox(listFaculty);
+                ThemGrid(listStudent, listFaculty);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
+        private void FillFacultyCombobox(List<Faculty> listFaculty)
+        {
+            this.cbNganh.DataSource = listFaculty;
+            this.cbNganh.DisplayMember = "FacultyName";
+            this.cbNganh.ValueMember = "FacultyID";
+        }
+
         private void UpdateFacultyComboBox()
         {
             cbNganh.Items.Clear();

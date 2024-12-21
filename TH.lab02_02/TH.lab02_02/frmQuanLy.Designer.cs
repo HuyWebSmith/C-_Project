@@ -57,10 +57,10 @@
             // 
             // btnLuu
             // 
-            this.btnLuu.Location = new System.Drawing.Point(332, 318);
-            this.btnLuu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLuu.Location = new System.Drawing.Point(249, 258);
+            this.btnLuu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(80, 28);
+            this.btnLuu.Size = new System.Drawing.Size(60, 23);
             this.btnLuu.TabIndex = 16;
             this.btnLuu.Text = "Luu";
             this.btnLuu.UseVisualStyleBackColor = true;
@@ -69,47 +69,49 @@
             // txtTenNganh
             // 
             this.txtTenNganh.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtTenNganh.Location = new System.Drawing.Point(147, 105);
-            this.txtTenNganh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTenNganh.Location = new System.Drawing.Point(110, 85);
+            this.txtTenNganh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTenNganh.Multiline = true;
             this.txtTenNganh.Name = "txtTenNganh";
-            this.txtTenNganh.Size = new System.Drawing.Size(249, 34);
+            this.txtTenNganh.Size = new System.Drawing.Size(188, 28);
             this.txtTenNganh.TabIndex = 12;
             // 
             // txtMaNganh
             // 
             this.txtMaNganh.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtMaNganh.Location = new System.Drawing.Point(147, 47);
-            this.txtMaNganh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtMaNganh.Location = new System.Drawing.Point(110, 38);
+            this.txtMaNganh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtMaNganh.Multiline = true;
             this.txtMaNganh.Name = "txtMaNganh";
-            this.txtMaNganh.Size = new System.Drawing.Size(249, 34);
+            this.txtMaNganh.Size = new System.Drawing.Size(188, 28);
             this.txtMaNganh.TabIndex = 7;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 108);
+            this.label3.Location = new System.Drawing.Point(12, 88);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 16);
+            this.label3.Size = new System.Drawing.Size(71, 15);
             this.label3.TabIndex = 3;
             this.label3.Text = "Tên Ngành:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 47);
+            this.label2.Location = new System.Drawing.Point(12, 38);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 16);
+            this.label2.Size = new System.Drawing.Size(68, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "Mã Ngành:";
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(19, 318);
-            this.btnHuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnHuy.Location = new System.Drawing.Point(14, 258);
+            this.btnHuy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(83, 31);
+            this.btnHuy.Size = new System.Drawing.Size(62, 25);
             this.btnHuy.TabIndex = 15;
             this.btnHuy.Text = "Huy";
             this.btnHuy.UseVisualStyleBackColor = true;
@@ -128,18 +130,19 @@
             this.pn2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn2.Enabled = false;
             this.pn2.Location = new System.Drawing.Point(0, 0);
-            this.pn2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pn2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pn2.Name = "pn2";
-            this.pn2.Size = new System.Drawing.Size(548, 624);
+            this.pn2.Size = new System.Drawing.Size(411, 507);
             this.pn2.TabIndex = 0;
             this.pn2.Tag = "";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 9);
+            this.label1.Location = new System.Drawing.Point(12, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 16);
+            this.label1.Size = new System.Drawing.Size(44, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "Chi tiết";
             // 
@@ -148,16 +151,17 @@
             this.panel3.Controls.Add(this.pn2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(548, 624);
+            this.panel3.Size = new System.Drawing.Size(411, 507);
             this.panel3.TabIndex = 0;
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(403, 545);
-            this.btnXoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnXoa.Location = new System.Drawing.Point(302, 443);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(75, 23);
+            this.btnXoa.Size = new System.Drawing.Size(56, 19);
             this.btnXoa.TabIndex = 4;
             this.btnXoa.Text = "Xoa";
             this.btnXoa.UseVisualStyleBackColor = true;
@@ -165,10 +169,10 @@
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(287, 545);
-            this.btnSua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSua.Location = new System.Drawing.Point(215, 443);
+            this.btnSua.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(75, 23);
+            this.btnSua.Size = new System.Drawing.Size(56, 19);
             this.btnSua.TabIndex = 5;
             this.btnSua.Text = "Sua";
             this.btnSua.UseVisualStyleBackColor = true;
@@ -177,10 +181,10 @@
             // btnThem
             // 
             this.btnThem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnThem.Location = new System.Drawing.Point(527, 545);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnThem.Location = new System.Drawing.Point(395, 443);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(75, 23);
+            this.btnThem.Size = new System.Drawing.Size(56, 19);
             this.btnThem.TabIndex = 6;
             this.btnThem.Text = "Them";
             this.btnThem.UseVisualStyleBackColor = true;
@@ -190,7 +194,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -203,8 +207,9 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panel3);
-            this.splitContainer1.Size = new System.Drawing.Size(1222, 624);
-            this.splitContainer1.SplitterDistance = 670;
+            this.splitContainer1.Size = new System.Drawing.Size(916, 507);
+            this.splitContainer1.SplitterDistance = 502;
+            this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 0;
             // 
             // dgvFaculty
@@ -216,11 +221,12 @@
             this.Column2});
             this.dgvFaculty.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvFaculty.Location = new System.Drawing.Point(0, 0);
+            this.dgvFaculty.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvFaculty.Name = "dgvFaculty";
             this.dgvFaculty.ReadOnly = true;
             this.dgvFaculty.RowHeadersWidth = 51;
             this.dgvFaculty.RowTemplate.Height = 24;
-            this.dgvFaculty.Size = new System.Drawing.Size(670, 480);
+            this.dgvFaculty.Size = new System.Drawing.Size(502, 390);
             this.dgvFaculty.TabIndex = 7;
             this.dgvFaculty.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFaculty_CellContentClick);
             // 
@@ -243,19 +249,21 @@
             this.panel1.Controls.Add(this.splitContainer1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1222, 624);
+            this.panel1.Size = new System.Drawing.Size(916, 507);
             this.panel1.TabIndex = 1;
             // 
             // frmQuanLy
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1222, 624);
+            this.ClientSize = new System.Drawing.Size(916, 507);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmQuanLy";
             this.Text = "frmQuanLy";
+            this.Load += new System.EventHandler(this.frmQuanLy_Load);
             this.pn2.ResumeLayout(false);
             this.pn2.PerformLayout();
             this.panel3.ResumeLayout(false);
