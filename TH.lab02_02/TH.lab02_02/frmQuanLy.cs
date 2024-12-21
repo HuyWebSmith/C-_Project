@@ -13,26 +13,12 @@ namespace TH.lab02_02
     public partial class frmQuanLy : Form
     {
         private List<Faculty> listFaculty = new List<Faculty>();
+        private Boolean isAdding = true;
         public frmQuanLy()
         {
             InitializeComponent();
         }
-        public void AddDataToGrid(Faculty faculty)
-        {
-            listFaculty.Add(faculty);
-            UpdateGridView(listFaculty);
 
-        }
-        private void UpdateGridView(List<Faculty> listFaculty)
-        {
-            dgvFaculty.Rows.Clear();
-            foreach (var faculty in listFaculty)
-            {
-                int newRowIndex = dgvFaculty.Rows.Add();
-                dgvFaculty.Rows[newRowIndex].Cells[0].Value = faculty.MaNganh;
-                dgvFaculty.Rows[newRowIndex].Cells[1].Value = faculty.TenNganh;
-            }
-        }
         private void ClearInputFields()
         {
             txtMaNganh.Text = "";
@@ -49,6 +35,7 @@ namespace TH.lab02_02
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
+            isAdding = true;
             pn2.Enabled = true;
             ClearInputFields();
         }
@@ -64,6 +51,7 @@ namespace TH.lab02_02
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            isAdding = false;
             pn2.Enabled = true;
             ClearInputFields();
         }
@@ -92,40 +80,61 @@ namespace TH.lab02_02
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            pn2.Enabled = false;
+            if (txtMaNganh.Text == "" || txtTenNganh.Text == "")
+            {
+                throw new Exception("Bắt Buộc Nhập Đầy Đủ Thông Tin!");
+            }
             try
             {
-                if (txtMaNganh.Text == "" || txtTenNganh.Text == "")
+                Faculty faculty = new Faculty()
                 {
-                    throw new Exception("Bắt Buộc Nhập Đầy Đủ Thông Tin!");
-                }
-                int selectedRow = GetSelectedRow();
-                if (selectedRow >= 0)
+                    MaNganh = txtMaNganh.Text,
+                    TenNganh = txtTenNganh.Text,    
+                };
+                if (isAdding)
                 {
-                    listFaculty[selectedRow].MaNganh = txtMaNganh.Text;
-                    listFaculty[selectedRow].TenNganh = txtTenNganh.Text;
-
-                    UpdateGridView(listFaculty);
-                    MessageBox.Show("Cập nhật thành công!", "Thông báo");
+                    frmBase.Faculties.Add(faculty);
+                    AddDataToGrid(faculty);
+                    MessageBox.Show("Thêm Thông Tin Ngành Thành Công");
                 }
                 else
                 {
-                    Faculty faculty = new Faculty
+                    int selectedRow = GetSelectedRow();
+                    if (selectedRow >= 0)
                     {
-                        MaNganh = txtMaNganh.Text,
-                        TenNganh = txtTenNganh.Text
-                    };
-
-                    AddDataToGrid(faculty);
-                    MessageBox.Show("Thêm mới thành công!", "Thông báo");
+                        frmBase.Faculties[selectedRow] = faculty;
+                        listFaculty[selectedRow] = faculty;
+                        ThemGrid(listFaculty);
+                        MessageBox.Show("Sửa Thông Tin Ngành Thành Công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vui lòng chọn Ngành để sửa.");
+                    }
                 }
+                pn2.Enabled = false;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
+        public void AddDataToGrid(Faculty faculty)
+        {
+            listFaculty.Add(faculty);
+            ThemGrid(listFaculty);
 
+        }
+        private void ThemGrid(List<Faculty> listFaculty)
+        {
+            dgvFaculty.Rows.Clear();
+            foreach (var item in listFaculty)
+            {
+                int index = dgvFaculty.Rows.Add();
+                dgvFaculty.Rows[index].Cells[0].Value = item.MaNganh;
+                dgvFaculty.Rows[index].Cells[1].Value = item.TenNganh;
+            }
+        }
         private void dgvFaculty_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,37 +13,17 @@ namespace TH.lab02_02
 {
     public partial class Form1 : Form
     {
-        private List<Student> list = new List<Student>();
+        private List<Student> listStudent = new List<Student>();
+        private bool isAdding = true;
         public Form1()
         {
             InitializeComponent();
-        }
-        public void AddDataToGrid(Student student)
-        {
-            list.Add(student);
-            UpdateGridView(list);
-
-        }
-        private void UpdateGridView(List<Student> list)
-        {
-            dgvStudent.Rows.Clear();
-            foreach (var student in list)
-            {
-                int newRowIndex = dgvStudent.Rows.Add();
-                dgvStudent.Rows[newRowIndex].Cells[0].Value = student.TenDangNhap;
-                dgvStudent.Rows[newRowIndex].Cells[1].Value = student.MatKhau;
-                dgvStudent.Rows[newRowIndex].Cells[2].Value = student.HoTen;
-                dgvStudent.Rows[newRowIndex].Cells[3].Value = student.Sdt;
-                dgvStudent.Rows[newRowIndex].Cells[4].Value = student.ChuyenNganh;
-            }
-        }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+        }      
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            UpdateFacultyComboBox();
+            isAdding = true;
             pn2.Enabled = true;
             ClearInputFields();
         }
@@ -61,38 +42,40 @@ namespace TH.lab02_02
         }
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            pn2.Enabled = false;
             try
             {
-                if (txtTenDangNhap.Text == "" || txtMatKhau.Text == "" || txtHoTen.Text == "" || txtSDT.Text == "")
+                if (txtTenDangNhap.Text == "" || txtMatKhau.Text == "" || txtHoTen.Text == "")
                 {
                     throw new Exception("Bắt Buộc Nhập Đầy Đủ Thông Tin!");
                 }
-                int selectedRow = GetSelectedRow();
-                if (selectedRow >= 0) 
+                Student student = new Student()
                 {
-                    list[selectedRow].MatKhau = txtMatKhau.Text;
-                    list[selectedRow].HoTen = txtHoTen.Text;
-                    list[selectedRow].Sdt = txtSDT.Text;
-                    list[selectedRow].ChuyenNganh = cbNganh.Text;
-
-                    UpdateGridView(list);
-                    MessageBox.Show("Cập nhật thành công!", "Thông báo");
-                }
-                else 
+                    TenDangNhap = txtTenDangNhap.Text,
+                    MatKhau = txtMatKhau.Text,
+                    HoTen = txtHoTen.Text,
+                    Sdt = txtSDT.Text,
+                    ChuyenNganh = cbNganh.SelectedItem?.ToString() ?? "Chưa chọn ngành"
+                };
+                if (isAdding)
                 {
-                    Student student = new Student
-                    {
-                        TenDangNhap = txtTenDangNhap.Text,
-                        MatKhau = txtMatKhau.Text,
-                        HoTen = txtHoTen.Text,
-                        Sdt = txtSDT.Text,
-                        ChuyenNganh = cbNganh.Text
-                    };
-
                     AddDataToGrid(student);
-                    MessageBox.Show("Thêm mới thành công!", "Thông báo");
+                    MessageBox.Show("Thêm Sinh Viên Thành Công");
                 }
+                else
+                {
+                    int selectedRow = GetSelectedRow();
+                    if (selectedRow >= 0)
+                    {
+                        listStudent[selectedRow] = student;
+                        ThemGrid(listStudent);
+                        MessageBox.Show("Sửa Sinh Viên Thành Công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vui lòng chọn một sinh viên để sửa.");
+                    }
+                }
+                pn2.Enabled = false;
             }
             catch (Exception ex)
             {
@@ -100,30 +83,65 @@ namespace TH.lab02_02
             }
 
         }
+        public void AddDataToGrid(Student student)
+        {
+            listStudent.Add(student);
+            ThemGrid(listStudent);
+
+        }
+        private void ThemGrid(List<Student> listStudent)
+        {
+            dgvStudent.Rows.Clear();
+            foreach (var item in listStudent)
+            {
+                int index = dgvStudent.Rows.Add();
+                dgvStudent.Rows[index].Cells[0].Value = item.TenDangNhap;
+                dgvStudent.Rows[index].Cells[1].Value = item.MatKhau;
+                dgvStudent.Rows[index].Cells[2].Value = item.HoTen;
+                dgvStudent.Rows[index].Cells[3].Value = item.Sdt;
+                dgvStudent.Rows[index].Cells[4].Value = item.ChuyenNganh;
+
+            }
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
-            cbNganh.SelectedIndex = 0;
+            
         }
-
-
+        private void UpdateFacultyComboBox()
+        {
+            cbNganh.Items.Clear();
+            foreach (var faculty in frmBase.Faculties)
+            {
+                cbNganh.Items.Add(faculty.TenNganh);
+            }
+        }
         private void ClearInputFields()
         {
             txtTenDangNhap.Text = "";
             txtMatKhau.Text = "";
             txtHoTen.Text = "";
             txtSDT.Text = "";
-            cbNganh.SelectedIndex = 0;
         }
-
         private void btnSua_Click(object sender, EventArgs e)
         {
+            UpdateFacultyComboBox();
+            isAdding = false;
             pn2.Enabled = true;
             ClearInputFields();
-
+            int selectedRow = GetSelectedRow();
+            if (selectedRow >= 0)
+            {
+                txtTenDangNhap.Text = listStudent[selectedRow].TenDangNhap;
+                txtMatKhau.Text = listStudent[selectedRow].MatKhau;
+                txtHoTen.Text = listStudent[selectedRow].HoTen;
+                txtSDT.Text = listStudent[selectedRow].Sdt;
+                cbNganh.SelectedItem = listStudent[selectedRow].ChuyenNganh;
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một sinh viên để sửa.");
+            }
         }
-
-
-
         private void btnXoa_Click(object sender, EventArgs e)
         {
             if (dgvStudent.CurrentRow != null)
@@ -134,7 +152,7 @@ namespace TH.lab02_02
                     DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa hàng này?", "Xác Nhận", MessageBoxButtons.YesNo);
                     if (result == DialogResult.Yes)
                     {
-                        list.RemoveAt(selectedRow);
+                        listStudent.RemoveAt(selectedRow);
                         dgvStudent.Rows.RemoveAt(selectedRow);
                         MessageBox.Show("Xóa dữ liệu thành công!", "Thông Báo", MessageBoxButtons.OK);
                     }

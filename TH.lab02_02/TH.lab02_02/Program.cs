@@ -16,7 +16,7 @@ namespace TH.lab02_02
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Base());
+            Application.Run(new frmBase());
         }
     }
 }

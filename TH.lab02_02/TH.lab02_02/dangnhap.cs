@@ -33,8 +33,8 @@ namespace TH.lab02_02
                 MessageBox.Show("Đăng nhập thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide(); 
                 dangnhap dangnhap = new dangnhap();
-                Form1 form1 = new Form1();
-                form1.Show();
+                frmBase frm = new frmBase();
+                frm.Show();
             }
             else
             {

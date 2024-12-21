@@ -42,9 +42,9 @@
             this.btnThem = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dgvFaculty = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pn2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -73,7 +73,6 @@
             this.txtTenNganh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTenNganh.Multiline = true;
             this.txtTenNganh.Name = "txtTenNganh";
-            this.txtTenNganh.PasswordChar = '•';
             this.txtTenNganh.Size = new System.Drawing.Size(249, 34);
             this.txtTenNganh.TabIndex = 12;
             // 
@@ -225,6 +224,20 @@
             this.dgvFaculty.TabIndex = 7;
             this.dgvFaculty.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFaculty_CellContentClick);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Mã Ngành";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Tên Ngành";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.splitContainer1);
@@ -234,18 +247,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1222, 624);
             this.panel1.TabIndex = 1;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Mã Ngành";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Tên Ngành";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
             // 
             // frmQuanLy
             // 

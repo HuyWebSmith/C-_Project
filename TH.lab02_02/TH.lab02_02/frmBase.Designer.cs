@@ -1,6 +1,6 @@
 ﻿namespace TH.lab02_02
 {
-    partial class Base
+    partial class frmBase
     {
         /// <summary>
         /// Required designer variable.

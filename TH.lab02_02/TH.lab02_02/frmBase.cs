@@ -10,22 +10,22 @@ using System.Windows.Forms;
 
 namespace TH.lab02_02
 {
-    public partial class Base : Form
+    public partial class frmBase : Form
     {
-        public Base()
+        public frmBase()
         {
             InitializeComponent();
         }
-
+        public static List<Faculty> Faculties = new List<Faculty>();
         private void sinhVienToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
             Form1 form1 = new Form1();
 
             form1.TopLevel = false;
             form1.FormBorderStyle = FormBorderStyle.Sizable; 
             form1.Dock = DockStyle.Fill;
 
-            pnBase.Controls.Clear();
             pnBase.Controls.Add(form1);
             form1.Show();
         }
@@ -43,7 +43,6 @@ namespace TH.lab02_02
             frmQuanLy.FormBorderStyle = FormBorderStyle.Sizable;
             frmQuanLy.Dock = DockStyle.Fill;
 
-            pnBase.Controls.Clear();
             pnBase.Controls.Add(frmQuanLy);
             frmQuanLy.Show();
         }
