@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQLSinhvien_GUI));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.chứcNăngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýSinhVIênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,8 +39,6 @@
             this.sửaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvStudent = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbxChuaXepLop = new System.Windows.Forms.CheckBox();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +48,10 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbxChuaXepLop = new System.Windows.Forms.CheckBox();
+            this.btnReload = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
             this.SuspendLayout();
@@ -106,21 +109,22 @@
             // thêmToolStripMenuItem
             // 
             this.thêmToolStripMenuItem.Name = "thêmToolStripMenuItem";
-            this.thêmToolStripMenuItem.Size = new System.Drawing.Size(129, 26);
+            this.thêmToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.thêmToolStripMenuItem.Text = "Thêm";
             this.thêmToolStripMenuItem.Click += new System.EventHandler(this.thêmToolStripMenuItem_Click);
             // 
             // sửaToolStripMenuItem
             // 
             this.sửaToolStripMenuItem.Name = "sửaToolStripMenuItem";
-            this.sửaToolStripMenuItem.Size = new System.Drawing.Size(129, 26);
+            this.sửaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.sửaToolStripMenuItem.Text = "Sửa ";
             // 
             // xóaToolStripMenuItem
             // 
             this.xóaToolStripMenuItem.Name = "xóaToolStripMenuItem";
-            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(129, 26);
+            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.xóaToolStripMenuItem.Text = "Xóa";
+            this.xóaToolStripMenuItem.Click += new System.EventHandler(this.xóaToolStripMenuItem_Click);
             // 
             // dgvStudent
             // 
@@ -142,26 +146,6 @@
             this.dgvStudent.RowTemplate.Height = 24;
             this.dgvStudent.Size = new System.Drawing.Size(1157, 500);
             this.dgvStudent.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(433, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(268, 32);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Quản Lý Sinh Viên";
-            // 
-            // cbxChuaXepLop
-            // 
-            this.cbxChuaXepLop.AutoSize = true;
-            this.cbxChuaXepLop.Location = new System.Drawing.Point(1029, 57);
-            this.cbxChuaXepLop.Name = "cbxChuaXepLop";
-            this.cbxChuaXepLop.Size = new System.Drawing.Size(140, 20);
-            this.cbxChuaXepLop.TabIndex = 3;
-            this.cbxChuaXepLop.Text = "Chưa được xếp lớp";
-            this.cbxChuaXepLop.UseVisualStyleBackColor = true;
             // 
             // Column10
             // 
@@ -217,11 +201,53 @@
             this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(433, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(268, 32);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Quản Lý Sinh Viên";
+            // 
+            // cbxChuaXepLop
+            // 
+            this.cbxChuaXepLop.AutoSize = true;
+            this.cbxChuaXepLop.Location = new System.Drawing.Point(1029, 57);
+            this.cbxChuaXepLop.Name = "cbxChuaXepLop";
+            this.cbxChuaXepLop.Size = new System.Drawing.Size(140, 20);
+            this.cbxChuaXepLop.TabIndex = 3;
+            this.cbxChuaXepLop.Text = "Chưa được xếp lớp";
+            this.cbxChuaXepLop.UseVisualStyleBackColor = true;
+            this.cbxChuaXepLop.CheckedChanged += new System.EventHandler(this.cbxChuaXepLop_CheckedChanged);
+            // 
+            // btnReload
+            // 
+            this.btnReload.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnReload.BackgroundImage")));
+            this.btnReload.Location = new System.Drawing.Point(12, 51);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(31, 26);
+            this.btnReload.TabIndex = 4;
+            this.btnReload.UseVisualStyleBackColor = true;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(49, 56);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 16);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "RELOAD";
+            // 
             // frmQLSinhvien_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1181, 595);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnReload);
             this.Controls.Add(this.cbxChuaXepLop);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvStudent);
@@ -261,5 +287,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.Button btnReload;
+        private System.Windows.Forms.Label label2;
     }
 }

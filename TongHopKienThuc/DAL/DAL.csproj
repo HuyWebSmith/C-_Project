@@ -72,9 +72,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202412270302531_StudentDBInit.resx">
       <DependentUpon>202412270302531_StudentDBInit.cs</DependentUpon>
