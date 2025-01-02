@@ -39,19 +39,24 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnTransactions = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnBudgets = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnGoals = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnReport = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnLogOut = new System.Windows.Forms.Button();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
             this.pnlMain = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvChiTieuGanDay = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,9 +74,10 @@
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvChiTieuGanDay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,6 +90,9 @@
             this.sidebar.Controls.Add(this.panel4);
             this.sidebar.Controls.Add(this.panel5);
             this.sidebar.Controls.Add(this.panel6);
+            this.sidebar.Controls.Add(this.panel7);
+            this.sidebar.Controls.Add(this.panel8);
+            this.sidebar.Controls.Add(this.btnLogOut);
             this.sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebar.Location = new System.Drawing.Point(0, 0);
             this.sidebar.MaximumSize = new System.Drawing.Size(301, 781);
@@ -123,6 +132,7 @@
             // btnHome
             // 
             this.btnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHome.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHome.ForeColor = System.Drawing.Color.White;
@@ -139,104 +149,168 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.btnTransactions);
             this.panel3.Location = new System.Drawing.Point(3, 212);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(298, 66);
             this.panel3.TabIndex = 1;
             // 
-            // button1
+            // btnTransactions
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(-3, -14);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(308, 91);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "                   Transactions";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnTransactions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.btnTransactions.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTransactions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTransactions.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTransactions.ForeColor = System.Drawing.Color.White;
+            this.btnTransactions.Image = ((System.Drawing.Image)(resources.GetObject("btnTransactions.Image")));
+            this.btnTransactions.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTransactions.Location = new System.Drawing.Point(-3, -14);
+            this.btnTransactions.Name = "btnTransactions";
+            this.btnTransactions.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.btnTransactions.Size = new System.Drawing.Size(308, 91);
+            this.btnTransactions.TabIndex = 4;
+            this.btnTransactions.Text = "                   Transactions";
+            this.btnTransactions.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTransactions.UseVisualStyleBackColor = false;
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.button4);
+            this.panel4.Controls.Add(this.btnBudgets);
             this.panel4.Location = new System.Drawing.Point(3, 284);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(298, 66);
             this.panel4.TabIndex = 2;
             // 
-            // button4
+            // btnBudgets
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(-3, -11);
-            this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button4.Size = new System.Drawing.Size(308, 91);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "                  Budgets";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnBudgets.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.btnBudgets.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBudgets.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBudgets.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBudgets.ForeColor = System.Drawing.Color.White;
+            this.btnBudgets.Image = ((System.Drawing.Image)(resources.GetObject("btnBudgets.Image")));
+            this.btnBudgets.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBudgets.Location = new System.Drawing.Point(-3, -11);
+            this.btnBudgets.Name = "btnBudgets";
+            this.btnBudgets.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnBudgets.Size = new System.Drawing.Size(308, 91);
+            this.btnBudgets.TabIndex = 7;
+            this.btnBudgets.Text = "                  Budgets";
+            this.btnBudgets.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBudgets.UseVisualStyleBackColor = false;
+            this.btnBudgets.Click += new System.EventHandler(this.button4_Click);
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.button3);
+            this.panel5.Controls.Add(this.btnGoals);
             this.panel5.Location = new System.Drawing.Point(3, 356);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(298, 66);
             this.panel5.TabIndex = 3;
             // 
-            // button3
+            // btnGoals
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(-3, -12);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(308, 91);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "                  Goals";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnGoals.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.btnGoals.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGoals.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGoals.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGoals.ForeColor = System.Drawing.Color.White;
+            this.btnGoals.Image = ((System.Drawing.Image)(resources.GetObject("btnGoals.Image")));
+            this.btnGoals.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGoals.Location = new System.Drawing.Point(-3, -12);
+            this.btnGoals.Name = "btnGoals";
+            this.btnGoals.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnGoals.Size = new System.Drawing.Size(308, 91);
+            this.btnGoals.TabIndex = 6;
+            this.btnGoals.Text = "                  Goals";
+            this.btnGoals.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGoals.UseVisualStyleBackColor = false;
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.button2);
+            this.panel6.Controls.Add(this.btnReport);
             this.panel6.Location = new System.Drawing.Point(3, 428);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(298, 66);
             this.panel6.TabIndex = 2;
             // 
-            // button2
+            // btnReport
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(-3, -10);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(308, 91);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "                  Reports";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.btnReport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReport.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReport.ForeColor = System.Drawing.Color.White;
+            this.btnReport.Image = ((System.Drawing.Image)(resources.GetObject("btnReport.Image")));
+            this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReport.Location = new System.Drawing.Point(-3, -10);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnReport.Size = new System.Drawing.Size(308, 91);
+            this.btnReport.TabIndex = 5;
+            this.btnReport.Text = "                  Reports";
+            this.btnReport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReport.UseVisualStyleBackColor = false;
+            // 
+            // panel7
+            // 
+            this.panel7.Location = new System.Drawing.Point(3, 500);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(298, 101);
+            this.panel7.TabIndex = 7;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.button1);
+            this.panel8.Location = new System.Drawing.Point(3, 607);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(295, 84);
+            this.panel8.TabIndex = 10;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(298, 91);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "                  Log In";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.btnLogOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogOut.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.ForeColor = System.Drawing.Color.White;
+            this.btnLogOut.Image = ((System.Drawing.Image)(resources.GetObject("btnLogOut.Image")));
+            this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogOut.Location = new System.Drawing.Point(3, 697);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnLogOut.Size = new System.Drawing.Size(298, 80);
+            this.btnLogOut.TabIndex = 6;
+            this.btnLogOut.Text = "                  Log Out";
+            this.btnLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Visible = false;
+            // 
+            // panel9
+            // 
+            this.panel9.Location = new System.Drawing.Point(345, 157);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(298, 66);
+            this.panel9.TabIndex = 9;
             // 
             // sidebarTimer
             // 
@@ -249,7 +323,8 @@
             this.pnlMain.Controls.Add(this.label4);
             this.pnlMain.Controls.Add(this.label3);
             this.pnlMain.Controls.Add(this.chart1);
-            this.pnlMain.Controls.Add(this.dataGridView1);
+            this.pnlMain.Controls.Add(this.dgvChiTieuGanDay);
+            this.pnlMain.Controls.Add(this.panel9);
             this.pnlMain.Location = new System.Drawing.Point(108, 127);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(1259, 654);
@@ -293,22 +368,22 @@
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
             // 
-            // dataGridView1
+            // dgvChiTieuGanDay
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvChiTieuGanDay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvChiTieuGanDay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvChiTieuGanDay.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
             this.Column4});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dataGridView1.Location = new System.Drawing.Point(673, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(586, 654);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvChiTieuGanDay.Dock = System.Windows.Forms.DockStyle.Right;
+            this.dgvChiTieuGanDay.Location = new System.Drawing.Point(673, 0);
+            this.dgvChiTieuGanDay.Name = "dgvChiTieuGanDay";
+            this.dgvChiTieuGanDay.RowHeadersWidth = 51;
+            this.dgvChiTieuGanDay.RowTemplate.Height = 24;
+            this.dgvChiTieuGanDay.Size = new System.Drawing.Size(586, 654);
+            this.dgvChiTieuGanDay.TabIndex = 0;
             // 
             // Column1
             // 
@@ -386,7 +461,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Name = "frmBase";
-            this.Text = "frmBase";
+            this.Text = "QUẢN LÝ THU NHẬP CÁ NHÂN";
             this.Load += new System.EventHandler(this.frmBase_Load);
             this.sidebar.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -396,10 +471,11 @@
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvChiTieuGanDay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -413,13 +489,13 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnTransactions;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnBudgets;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnGoals;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnReport;
         private System.Windows.Forms.PictureBox menuBtn;
         private System.Windows.Forms.Timer sidebarTimer;
         private System.Windows.Forms.Panel pnlMain;
@@ -428,7 +504,7 @@
         private System.Data.Entity.Core.EntityClient.EntityCommand entityCommand1;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvChiTieuGanDay;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -436,5 +512,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.Timer curentDaytimer;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Button button1;
     }
 }

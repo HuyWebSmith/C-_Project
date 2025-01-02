@@ -63,5 +63,11 @@ namespace QuanLyChiTieuCaNhan
             DateTime currentDate = DateTime.Now;
             lblDate.Text = currentDate.ToString("dd/MM/yyyy HH:mm:ss"); ;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmAccount frmAccount = new frmAccount();
+            frmAccount.ShowDialog();
+        }
     }
 }

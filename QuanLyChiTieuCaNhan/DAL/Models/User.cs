@@ -27,13 +27,21 @@ namespace DAL
         public virtual ICollection<Budget> budgets { get; set; }
         public virtual ICollection<Goals> goals { get; set; }
         public virtual ICollection<Report> reports { get; set; }
-        public User() 
-        { 
+        public User()   
+        {
             categories = new HashSet<Categories>();
             transactions = new HashSet<Transaction>();
             budgets = new HashSet<Budget>();
             goals = new HashSet<Goals>();
             reports = new HashSet<Report>();
         }
+
+        public User(string userName, string passWord)
+        {
+            this.Username = userName;
+            this.Password = passWord;
+        }
+
+
     }
 }
