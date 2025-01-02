@@ -14,7 +14,8 @@ namespace DAL
     public class User
     {
         [Key]
-        public string UserID { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int UserID { get; set; }
         [Required, MaxLength(100)] public string Username { get; set; }
         [Required, MaxLength(100)] public string Password { get; set; }
         [MaxLength(100)] public string FullName { get; set; }

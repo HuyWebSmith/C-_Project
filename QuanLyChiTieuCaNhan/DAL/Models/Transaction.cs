@@ -13,19 +13,20 @@ namespace DAL.Models
     public class Transaction
     {
         [Key]
-        public string TransactionID { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int TransactionID { get; set; }
         [Required, MaxLength(100)] public string TransactionName { get; set; }
         [Required] public decimal Amount { get; set; }
         [Required] public DateTime Date { get; set; }
         public string Note { get; set; }
 
         
-        public string UserID { get; set; }
+        public int UserID { get; set; }
         [ForeignKey("UserID")]
         public User User { get; set; }
 
         
-        public string CategoryID { get; set; }
+        public int CategoryID { get; set; }
         [ForeignKey("CategoryID")]
         public Categories Category { get; set; }
     }

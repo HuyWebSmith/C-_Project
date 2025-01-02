@@ -231,7 +231,7 @@
         +y+N/+0QZ7/x/AAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnDangNhap.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAoVJREFUaEPtmU2rTVEYx2+JvAzERZGBCQaKUkpcShm4ZOgDYKwMfAcMDShTokwY
@@ -251,7 +251,7 @@
   <data name="btnLogOut.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAAWBJREFUaEPt2U1KA0EUxPGsPIBfAb2JeD6j5zELQa8gKurGdeI1/vKgx/EVUTv9
+        DAAACwwBP0AiyAAAAWBJREFUaEPt2U1KA0EUxPGsPIBfAb2JeD6j5zELQa8gKurGdeI1/vKgx/EVUTv9
         RsiM77dMN0UViSYws1lKKY0SsAdcAe/svjVwaZ11hw2xg7FZ6A4bYivNmZ4NTcpErDX7M1xf/wu+S4xm
         55AWvkqMZueQFr5KjGbnkBa+Soxm55AWvkqMZv+/IcApcA9c61ktXyVGs6uGACfAW7l6q+e1+hpxmv3r
         EGAOvJZrD8C+3qnV14jT7B+HAMfAS7nyCBzonW30NeI0+9shwBHwXI6fgEO9s62+RpxmbxwiI1otv2aW

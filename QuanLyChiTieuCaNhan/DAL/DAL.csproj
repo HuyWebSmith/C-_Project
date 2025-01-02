@@ -55,13 +55,14 @@
   <ItemGroup>
     <Compile Include="enums\CategoryType.cs" />
     <Compile Include="enums\Status.cs" />
-    <Compile Include="Migrations\202412310438352_FirstContext.cs" />
-    <Compile Include="Migrations\202412310438352_FirstContext.Designer.cs">
-      <DependentUpon>202412310438352_FirstContext.cs</DependentUpon>
+    <Compile Include="Migrations\202501021817431_TatRangBuocSuaXoaKhoaNgoai.cs" />
+    <Compile Include="Migrations\202501021817431_TatRangBuocSuaXoaKhoaNgoai.Designer.cs">
+      <DependentUpon>202501021817431_TatRangBuocSuaXoaKhoaNgoai.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Budget.cs" />
     <Compile Include="Models\Categories.cs" />
+    <Compile Include="Models\CurrentUser.cs" />
     <Compile Include="Models\Goals.cs" />
     <Compile Include="Models\Report.cs" />
     <Compile Include="Models\SpendingManagerDBContext.cs" />
@@ -74,8 +75,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202412310438352_FirstContext.resx">
-      <DependentUpon>202412310438352_FirstContext.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202501021817431_TatRangBuocSuaXoaKhoaNgoai.resx">
+      <DependentUpon>202501021817431_TatRangBuocSuaXoaKhoaNgoai.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

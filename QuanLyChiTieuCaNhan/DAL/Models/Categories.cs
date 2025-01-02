@@ -14,11 +14,12 @@ namespace DAL
     public class Categories
     {
         [Key]
-        public string CategoryID { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int CategoryID { get; set; }
         [Required, MaxLength(100)] public string CategoryName { get; set; }
         public CategoryType CategoryType { get; set; }
         
-        public string UserID { get; set; }
+        public int UserID { get; set; }
         [ForeignKey("UserID")]
         public User User { get; set; }
         public virtual ICollection<Transaction> transactions { get; set; }

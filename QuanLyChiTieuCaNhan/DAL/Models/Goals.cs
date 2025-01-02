@@ -13,14 +13,15 @@ namespace DAL.Models
     public class Goals
     {
         [Key]
-        public string GoalID { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int GoalID { get; set; }
         [Required, MaxLength(100)] public string GoalName { get; set; }
         [Required] public decimal TargetAmount { get; set; }
         [Required] public decimal CurrentAmount { get; set; } = 0.00m;
         public DateTime DueDate { get; set; }                       /* -- Ngày cần đạt được*/
         public Status Status { get; set; } = Status.InProgress;
         
-        public string UserID { get; set; }
+        public int UserID { get; set; }
         [ForeignKey("UserID")]
         public User User { get; set; }
     }

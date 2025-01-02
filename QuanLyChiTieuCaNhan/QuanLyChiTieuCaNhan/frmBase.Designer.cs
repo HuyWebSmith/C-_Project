@@ -30,9 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBase));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.menuBtn = new System.Windows.Forms.PictureBox();
@@ -48,21 +45,21 @@
             this.btnReport = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDangNhap = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
-            this.panel9 = new System.Windows.Forms.Panel();
             this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.lblExpense = new System.Windows.Forms.Label();
+            this.lblBalance = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dgvChiTieuGanDay = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblXinChao = new System.Windows.Forms.Label();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
             this.lblDate = new System.Windows.Forms.Label();
             this.curentDaytimer = new System.Windows.Forms.Timer(this.components);
@@ -76,7 +73,6 @@
             this.panel6.SuspendLayout();
             this.panel8.SuspendLayout();
             this.pnlMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTieuGanDay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -261,30 +257,30 @@
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.button1);
+            this.panel8.Controls.Add(this.btnDangNhap);
             this.panel8.Location = new System.Drawing.Point(3, 607);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(295, 84);
             this.panel8.TabIndex = 10;
             // 
-            // button1
+            // btnDangNhap
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(298, 91);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "                  Log In";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnDangNhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.btnDangNhap.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDangNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDangNhap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangNhap.ForeColor = System.Drawing.Color.White;
+            this.btnDangNhap.Image = ((System.Drawing.Image)(resources.GetObject("btnDangNhap.Image")));
+            this.btnDangNhap.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDangNhap.Location = new System.Drawing.Point(0, 0);
+            this.btnDangNhap.Name = "btnDangNhap";
+            this.btnDangNhap.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnDangNhap.Size = new System.Drawing.Size(298, 91);
+            this.btnDangNhap.TabIndex = 10;
+            this.btnDangNhap.Text = "                  Log In";
+            this.btnDangNhap.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDangNhap.UseVisualStyleBackColor = false;
+            this.btnDangNhap.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnLogOut
             // 
@@ -304,13 +300,7 @@
             this.btnLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogOut.UseVisualStyleBackColor = false;
             this.btnLogOut.Visible = false;
-            // 
-            // panel9
-            // 
-            this.panel9.Location = new System.Drawing.Point(345, 157);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(298, 66);
-            this.panel9.TabIndex = 9;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // sidebarTimer
             // 
@@ -320,15 +310,37 @@
             // pnlMain
             // 
             this.pnlMain.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlMain.Controls.Add(this.lblExpense);
+            this.pnlMain.Controls.Add(this.lblBalance);
             this.pnlMain.Controls.Add(this.label4);
             this.pnlMain.Controls.Add(this.label3);
-            this.pnlMain.Controls.Add(this.chart1);
             this.pnlMain.Controls.Add(this.dgvChiTieuGanDay);
-            this.pnlMain.Controls.Add(this.panel9);
             this.pnlMain.Location = new System.Drawing.Point(108, 127);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(1259, 654);
             this.pnlMain.TabIndex = 2;
+            // 
+            // lblExpense
+            // 
+            this.lblExpense.AutoSize = true;
+            this.lblExpense.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExpense.ForeColor = System.Drawing.Color.Red;
+            this.lblExpense.Location = new System.Drawing.Point(411, 97);
+            this.lblExpense.Name = "lblExpense";
+            this.lblExpense.Size = new System.Drawing.Size(128, 45);
+            this.lblExpense.TabIndex = 5;
+            this.lblExpense.Text = "Money";
+            // 
+            // lblBalance
+            // 
+            this.lblBalance.AutoSize = true;
+            this.lblBalance.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBalance.ForeColor = System.Drawing.Color.LimeGreen;
+            this.lblBalance.Location = new System.Drawing.Point(39, 97);
+            this.lblBalance.Name = "lblBalance";
+            this.lblBalance.Size = new System.Drawing.Size(128, 45);
+            this.lblBalance.TabIndex = 4;
+            this.lblBalance.Text = "Money";
             // 
             // label4
             // 
@@ -351,22 +363,6 @@
             this.label3.Size = new System.Drawing.Size(154, 28);
             this.label3.TabIndex = 2;
             this.label3.Text = "Số Dư Hiện Tại";
-            // 
-            // chart1
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(3, 244);
-            this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(664, 394);
-            this.chart1.TabIndex = 1;
-            this.chart1.Text = "chart1";
             // 
             // dgvChiTieuGanDay
             // 
@@ -419,14 +415,14 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
-            // label1
+            // lblXinChao
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(235, 51);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 16);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Xin Chào!!";
+            this.lblXinChao.AutoSize = true;
+            this.lblXinChao.Location = new System.Drawing.Point(235, 51);
+            this.lblXinChao.Name = "lblXinChao";
+            this.lblXinChao.Size = new System.Drawing.Size(66, 16);
+            this.lblXinChao.TabIndex = 4;
+            this.lblXinChao.Text = "Xin Chào!!";
             // 
             // entityCommand1
             // 
@@ -459,7 +455,7 @@
             this.Controls.Add(this.sidebar);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblXinChao);
             this.Name = "frmBase";
             this.Text = "QUẢN LÝ THU NHẬP CÁ NHÂN";
             this.Load += new System.EventHandler(this.frmBase_Load);
@@ -474,7 +470,6 @@
             this.panel8.ResumeLayout(false);
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTieuGanDay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -500,10 +495,9 @@
         private System.Windows.Forms.Timer sidebarTimer;
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblXinChao;
         private System.Data.Entity.Core.EntityClient.EntityCommand entityCommand1;
         private System.Windows.Forms.Label lblDate;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.DataGridView dgvChiTieuGanDay;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -514,8 +508,9 @@
         private System.Windows.Forms.Timer curentDaytimer;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button btnLogOut;
-        private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDangNhap;
+        private System.Windows.Forms.Label lblBalance;
+        private System.Windows.Forms.Label lblExpense;
     }
 }

@@ -12,6 +12,8 @@ namespace BLL
 {
     public class UserService
     {
+        public static User CurrentUser { get; set; }
+        
         public List<User> GetAll()
         {
             SpendingManagerDBContext context = new SpendingManagerDBContext();
@@ -59,7 +61,7 @@ namespace BLL
                 return false;
             }
         }
-        public bool DeleteUser(string deleteUserID)
+        public bool DeleteUser(int deleteUserID)
         {
             SpendingManagerDBContext context = new SpendingManagerDBContext();
             var user = context.Users.FirstOrDefault(u => u.UserID == deleteUserID);
@@ -74,7 +76,12 @@ namespace BLL
         public User Login(string username, string password)
         {
             SpendingManagerDBContext context = new SpendingManagerDBContext();
-            return context.Users.FirstOrDefault(u => u.Username == username && u.Password == password);
+            var user = context.Users.FirstOrDefault(u => u.Username == username && u.Password == password);
+            if (user != null)
+            {
+                CurrentUser = user;
+            }
+            return user;
         }
 
         public bool IsUsernameHas(string username)
