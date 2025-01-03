@@ -16,7 +16,7 @@ namespace BLL
             SpendingManagerDBContext _context = new SpendingManagerDBContext();
             return _context.Transactions.Where(t => t.UserID == userId).ToList();
         }
-
+        
         public decimal GetTotalAmountIncome(int userId)
         {
             SpendingManagerDBContext _context = new SpendingManagerDBContext();

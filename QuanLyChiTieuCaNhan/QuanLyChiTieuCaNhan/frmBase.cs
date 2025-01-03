@@ -15,6 +15,7 @@ namespace QuanLyChiTieuCaNhan
     public partial class frmBase : Form
     {
         bool sidebarExpand;
+        private readonly TransactionService transactionService = new TransactionService();
         public frmBase()
         {
             InitializeComponent();
@@ -58,6 +59,8 @@ namespace QuanLyChiTieuCaNhan
             if (UserService.CurrentUser != null)
             {
                 lblXinChao.Text = "Welcome, " + UserService.CurrentUser.FullName;
+                
+
             }
             else
             {
@@ -83,6 +86,16 @@ namespace QuanLyChiTieuCaNhan
             btnLogOut.Visible = true;
             DisplayBalance();
             DisplayExpense();
+            var listTransaction = transactionService.GetAllByUser(UserService.CurrentUser.UserID);
+            dgvChiTieuGanDay.Rows.Clear();
+            foreach (var item in listTransaction)
+            {
+                int index = dgvChiTieuGanDay.Rows.Add();
+                dgvChiTieuGanDay.Rows[index].Cells[0].Value = item.TransactionID;
+                dgvChiTieuGanDay.Rows[index].Cells[1].Value = item.TransactionName;
+                dgvChiTieuGanDay.Rows[index].Cells[2].Value = item.Date;
+                dgvChiTieuGanDay.Rows[index].Cells[3].Value = item.Note;
+            }
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -113,7 +126,7 @@ namespace QuanLyChiTieuCaNhan
             decimal Income = transactionService.GetTotalAmountIncome(currentUserId);
             decimal Expense = transactionService.GetTotalAmountExpense(currentUserId);
             decimal total = Income - Expense;
-            lblBalance.Text = $"{total}" + "đ"; 
+            lblBalance.Text = $"{total:c}" + "đ"; 
         }
 
         private void DisplayExpense()
@@ -124,7 +137,13 @@ namespace QuanLyChiTieuCaNhan
 
             decimal totalAmount = transactionService.GetTotalAmountExpense(currentUserId);
 
-            lblExpense.Text = $"{totalAmount}" + "đ";
+            lblExpense.Text = $"{totalAmount:c}" + "đ";
+        }
+
+        private void btnTransactions_Click(object sender, EventArgs e)
+        {
+            frmTransaction frmTransaction = new frmTransaction();
+            frmTransaction.Show();
         }
     }
 }

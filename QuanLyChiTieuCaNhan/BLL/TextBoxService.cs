@@ -5,13 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using ComboBox = System.Windows.Forms.ComboBox;
 
 namespace BLL
 {
     public static class TextBoxService
     {
 
-        public static void SetPlaceholder(this TextBox textBox, string placeholder)
+        public static void SetPlaceholder(this System.Windows.Forms.TextBox textBox, string placeholder)
         {
             textBox.Text = placeholder;
             textBox.ForeColor = Color.Gray;
@@ -34,7 +36,7 @@ namespace BLL
                 }
             };
         }
-
+        
 
     }
 }

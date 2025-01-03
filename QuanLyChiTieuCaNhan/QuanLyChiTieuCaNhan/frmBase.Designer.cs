@@ -168,6 +168,7 @@
             this.btnTransactions.Text = "                   Transactions";
             this.btnTransactions.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTransactions.UseVisualStyleBackColor = false;
+            this.btnTransactions.Click += new System.EventHandler(this.btnTransactions_Click);
             // 
             // panel4
             // 
@@ -383,13 +384,13 @@
             // 
             // Column1
             // 
-            this.Column1.HeaderText = "Tên Chi Tiêu";
+            this.Column1.HeaderText = "ID";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "Số Tiền";
+            this.Column2.HeaderText = "Loại ";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             // 
@@ -501,10 +502,6 @@
         private System.Windows.Forms.DataGridView dgvChiTieuGanDay;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.Timer curentDaytimer;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button btnLogOut;
@@ -512,5 +509,9 @@
         private System.Windows.Forms.Button btnDangNhap;
         private System.Windows.Forms.Label lblBalance;
         private System.Windows.Forms.Label lblExpense;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }
