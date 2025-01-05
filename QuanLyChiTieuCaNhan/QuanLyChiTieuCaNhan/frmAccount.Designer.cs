@@ -66,7 +66,6 @@
             this.panel1.Controls.Add(this.txtPasswordLog);
             this.panel1.Controls.Add(this.txtUserNameLog);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Enabled = false;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -161,7 +160,6 @@
             this.panel2.Controls.Add(this.txtPasswordCrea);
             this.panel2.Controls.Add(this.txtUserNameCrea);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(573, 522);

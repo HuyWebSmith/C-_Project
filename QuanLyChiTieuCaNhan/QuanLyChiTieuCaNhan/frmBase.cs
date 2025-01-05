@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,15 @@ namespace QuanLyChiTieuCaNhan
             InitializeComponent();
             curentDaytimer.Interval = 1000;
             curentDaytimer.Start();
+            this.KeyPreview = true;
+            this.KeyDown += new KeyEventHandler(Form_KeyDown);
+        }
+        private void Form_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F5)
+            {
+                btnload.PerformClick();
+            }
         }
         private void button4_Click(object sender, EventArgs e)
         {
@@ -77,24 +87,38 @@ namespace QuanLyChiTieuCaNhan
             lblDate.Text = currentDate.ToString("dd/MM/yyyy HH:mm:ss"); ;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            frmAccount frmAccount = new frmAccount();
-            frmAccount.ShowDialog();
-            lblXinChao.Text = "Welcome! " + CurrentUser.FullName;
-            btnDangNhap.Visible = false;
-            btnLogOut.Visible = true;
-            DisplayBalance();
-            DisplayExpense();
-            var listTransaction = transactionService.GetAllByUser(UserService.CurrentUser.UserID);
-            dgvChiTieuGanDay.Rows.Clear();
-            foreach (var item in listTransaction)
+            try
             {
-                int index = dgvChiTieuGanDay.Rows.Add();
-                dgvChiTieuGanDay.Rows[index].Cells[0].Value = item.TransactionID;
-                dgvChiTieuGanDay.Rows[index].Cells[1].Value = item.TransactionName;
-                dgvChiTieuGanDay.Rows[index].Cells[2].Value = item.Date;
-                dgvChiTieuGanDay.Rows[index].Cells[3].Value = item.Note;
+                frmAccount frmAccount = new frmAccount();
+                frmAccount.ShowDialog();
+                if (CurrentUser.Username != null && !string.IsNullOrEmpty(CurrentUser.FullName))
+                {
+                    lblXinChao.Text = "Welcome! " + CurrentUser.FullName;
+                    btnDangNhap.Visible = false;
+                    btnLogOut.Visible = true;
+                    DisplayBalance();
+                    DisplayExpense();
+                    var listTransaction = transactionService.GetAllByUser(UserService.CurrentUser.UserID);
+                    dgvChiTieuGanDay.Rows.Clear();
+                    foreach (var item in listTransaction)
+                    {
+                        int index = dgvChiTieuGanDay.Rows.Add();
+                        dgvChiTieuGanDay.Rows[index].Cells[0].Value = item.TransactionID;
+                        dgvChiTieuGanDay.Rows[index].Cells[1].Value = item.TransactionName;
+                        dgvChiTieuGanDay.Rows[index].Cells[2].Value = item.Date;
+                        dgvChiTieuGanDay.Rows[index].Cells[3].Value = item.Note;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng đăng nhập để sử dụng ứng dụng!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -119,14 +143,25 @@ namespace QuanLyChiTieuCaNhan
 
         private void DisplayBalance()
         {
-            int currentUserId = CurrentUser.UserID; 
+            int currentUserId = CurrentUser.UserID;
             TransactionService transactionService = new TransactionService();
-
 
             decimal Income = transactionService.GetTotalAmountIncome(currentUserId);
             decimal Expense = transactionService.GetTotalAmountExpense(currentUserId);
             decimal total = Income - Expense;
-            lblBalance.Text = $"{total:c}" + "đ"; 
+
+
+            if (total < 0)
+            {
+                lblBalance.Text = $"-{total:c}" + "đ";
+                lblBalance.ForeColor = Color.Red;
+                MessageBox.Show("Bạn đã tiêu vượt định mức Số Dư . Vui lòng Nhập thêm Số Dư");
+            }
+            else
+            {
+                lblBalance.Text = $"{total:c}" + "đ";
+                lblBalance.ForeColor = Color.Green;
+            }
         }
 
         private void DisplayExpense()
@@ -144,6 +179,28 @@ namespace QuanLyChiTieuCaNhan
         {
             frmTransaction frmTransaction = new frmTransaction();
             frmTransaction.Show();
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            frmReport frmReport = new frmReport();
+            frmReport.Show();
+        }
+
+        private void btnload_Click(object sender, EventArgs e)
+        {
+            DisplayBalance();
+            DisplayExpense();
+            var listTransaction = transactionService.GetAllByUser(UserService.CurrentUser.UserID);
+            dgvChiTieuGanDay.Rows.Clear();
+            foreach (var item in listTransaction)
+            {
+                int index = dgvChiTieuGanDay.Rows.Add();
+                dgvChiTieuGanDay.Rows[index].Cells[0].Value = item.TransactionID;
+                dgvChiTieuGanDay.Rows[index].Cells[1].Value = item.TransactionName;
+                dgvChiTieuGanDay.Rows[index].Cells[2].Value = item.Date;
+                dgvChiTieuGanDay.Rows[index].Cells[3].Value = item.Note;
+            }
         }
     }
 }

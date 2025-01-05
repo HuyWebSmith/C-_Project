@@ -63,6 +63,8 @@
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
             this.lblDate = new System.Windows.Forms.Label();
             this.curentDaytimer = new System.Windows.Forms.Timer(this.components);
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.btnload = new System.Windows.Forms.Button();
             this.sidebar.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menuBtn)).BeginInit();
@@ -79,6 +81,9 @@
             // 
             // sidebar
             // 
+            this.sidebar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.sidebar.Controls.Add(this.panel1);
             this.sidebar.Controls.Add(this.panel2);
@@ -89,7 +94,6 @@
             this.sidebar.Controls.Add(this.panel7);
             this.sidebar.Controls.Add(this.panel8);
             this.sidebar.Controls.Add(this.btnLogOut);
-            this.sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebar.Location = new System.Drawing.Point(0, 0);
             this.sidebar.MaximumSize = new System.Drawing.Size(301, 781);
             this.sidebar.MinimumSize = new System.Drawing.Size(105, 781);
@@ -248,6 +252,7 @@
             this.btnReport.Text = "                  Reports";
             this.btnReport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReport.UseVisualStyleBackColor = false;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // panel7
             // 
@@ -281,7 +286,7 @@
             this.btnDangNhap.Text = "                  Log In";
             this.btnDangNhap.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDangNhap.UseVisualStyleBackColor = false;
-            this.btnDangNhap.Click += new System.EventHandler(this.button1_Click);
+            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
             // btnLogOut
             // 
@@ -310,15 +315,18 @@
             // 
             // pnlMain
             // 
+            this.pnlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMain.BackColor = System.Drawing.SystemColors.Control;
             this.pnlMain.Controls.Add(this.lblExpense);
             this.pnlMain.Controls.Add(this.lblBalance);
             this.pnlMain.Controls.Add(this.label4);
             this.pnlMain.Controls.Add(this.label3);
             this.pnlMain.Controls.Add(this.dgvChiTieuGanDay);
-            this.pnlMain.Location = new System.Drawing.Point(108, 127);
+            this.pnlMain.Location = new System.Drawing.Point(101, 127);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(1259, 654);
+            this.pnlMain.Size = new System.Drawing.Size(1266, 654);
             this.pnlMain.TabIndex = 2;
             // 
             // lblExpense
@@ -326,7 +334,7 @@
             this.lblExpense.AutoSize = true;
             this.lblExpense.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblExpense.ForeColor = System.Drawing.Color.Red;
-            this.lblExpense.Location = new System.Drawing.Point(411, 97);
+            this.lblExpense.Location = new System.Drawing.Point(39, 235);
             this.lblExpense.Name = "lblExpense";
             this.lblExpense.Size = new System.Drawing.Size(128, 45);
             this.lblExpense.TabIndex = 5;
@@ -348,7 +356,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(414, 41);
+            this.label4.Location = new System.Drawing.Point(92, 177);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(201, 28);
             this.label4.TabIndex = 3;
@@ -367,6 +375,9 @@
             // 
             // dgvChiTieuGanDay
             // 
+            this.dgvChiTieuGanDay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvChiTieuGanDay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvChiTieuGanDay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvChiTieuGanDay.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -374,8 +385,7 @@
             this.Column2,
             this.Column3,
             this.Column4});
-            this.dgvChiTieuGanDay.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dgvChiTieuGanDay.Location = new System.Drawing.Point(673, 0);
+            this.dgvChiTieuGanDay.Location = new System.Drawing.Point(680, 0);
             this.dgvChiTieuGanDay.Name = "dgvChiTieuGanDay";
             this.dgvChiTieuGanDay.RowHeadersWidth = 51;
             this.dgvChiTieuGanDay.RowTemplate.Height = 24;
@@ -419,9 +429,11 @@
             // lblXinChao
             // 
             this.lblXinChao.AutoSize = true;
+            this.lblXinChao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblXinChao.ForeColor = System.Drawing.Color.White;
             this.lblXinChao.Location = new System.Drawing.Point(235, 51);
             this.lblXinChao.Name = "lblXinChao";
-            this.lblXinChao.Size = new System.Drawing.Size(66, 16);
+            this.lblXinChao.Size = new System.Drawing.Size(97, 20);
             this.lblXinChao.TabIndex = 4;
             this.lblXinChao.Text = "Xin Chào!!";
             // 
@@ -436,9 +448,11 @@
             // lblDate
             // 
             this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(1186, 51);
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.ForeColor = System.Drawing.Color.White;
+            this.lblDate.Location = new System.Drawing.Point(1121, 51);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(65, 16);
+            this.lblDate.Size = new System.Drawing.Size(90, 20);
             this.lblDate.TabIndex = 6;
             this.lblDate.Text = "Loading...";
             // 
@@ -446,12 +460,23 @@
             // 
             this.curentDaytimer.Tick += new System.EventHandler(this.curentDaytimer_Tick);
             // 
+            // btnload
+            // 
+            this.btnload.Location = new System.Drawing.Point(1281, 98);
+            this.btnload.Name = "btnload";
+            this.btnload.Size = new System.Drawing.Size(75, 23);
+            this.btnload.TabIndex = 7;
+            this.btnload.Text = "Load";
+            this.btnload.UseVisualStyleBackColor = true;
+            this.btnload.Click += new System.EventHandler(this.btnload_Click);
+            // 
             // frmBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(87)))), ((int)(((byte)(175)))));
             this.ClientSize = new System.Drawing.Size(1368, 780);
+            this.Controls.Add(this.btnload);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.sidebar);
             this.Controls.Add(this.pnlMain);
@@ -513,5 +538,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Button btnload;
     }
 }

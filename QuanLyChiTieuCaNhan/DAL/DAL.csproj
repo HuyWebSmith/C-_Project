@@ -65,18 +65,27 @@
     <Compile Include="Models\CurrentUser.cs" />
     <Compile Include="Models\Goals.cs" />
     <Compile Include="Models\Report.cs" />
+    <Compile Include="Models\Reportss.cs" />
     <Compile Include="Models\SpendingManagerDBContext.cs" />
     <Compile Include="Models\Transaction.cs" />
+    <Compile Include="Models\TransactionReport.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\DAL.Models.Report.datasource" />
+    <None Include="Properties\DataSources\DAL.Models.Reportss.datasource" />
+    <None Include="Properties\DataSources\DAL.Models.Transaction.datasource" />
+    <None Include="Properties\DataSources\DAL.Models.TransactionReport.datasource" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202501021817431_TatRangBuocSuaXoaKhoaNgoai.resx">
       <DependentUpon>202501021817431_TatRangBuocSuaXoaKhoaNgoai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\rptQuanLyChiTieu.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
