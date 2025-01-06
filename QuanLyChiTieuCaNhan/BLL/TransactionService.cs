@@ -13,7 +13,6 @@ namespace BLL
 {
     public class TransactionService
     {
-        SpendingManagerDBContext _context = new SpendingManagerDBContext();
         public List<Transaction> GetAllByUser(int userId)
         {
             SpendingManagerDBContext _context = new SpendingManagerDBContext();
@@ -22,16 +21,43 @@ namespace BLL
         
         public decimal GetTotalAmountIncome(int userId)
         {
-            SpendingManagerDBContext _context = new SpendingManagerDBContext();
-            return _context.Transactions.Where(t => t.UserID == userId && t.Category.CategoryType == CategoryType.Income).Sum(t => t.Amount);
+            try
+            {
+                SpendingManagerDBContext _context = new SpendingManagerDBContext();
+                return _context.Transactions.Where(t => t.UserID == userId && t.Category.CategoryType == CategoryType.Income).Sum(t => t.Amount);
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
         }
 
         public decimal GetTotalAmountExpense(int userId)
         {
-            SpendingManagerDBContext _context = new SpendingManagerDBContext();
-            return _context.Transactions.Where(t => t.UserID == userId && t.Category.CategoryType == CategoryType.Expense).Sum(t => t.Amount);
+            try
+            {
+                SpendingManagerDBContext _context = new SpendingManagerDBContext();
+                return _context.Transactions.Where(t => t.UserID == userId && t.Category.CategoryType == CategoryType.Expense).Sum(t => t.Amount);
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
         }
-
+        public decimal GetTotalExpensesByCategoryAndUser(int categoryID, int userId)
+        {
+            SpendingManagerDBContext _context = new SpendingManagerDBContext();
+            return _context.Transactions.Where(t => t.UserID == userId 
+            && t.Category.CategoryType == CategoryType.Expense
+            && t.Category.CategoryID == categoryID).Sum(t => t.Amount);
+        }
+        public decimal GetTotalInComeByCategoryAndUser(int categoryID, int userId)
+        {
+            SpendingManagerDBContext _context = new SpendingManagerDBContext();
+            return _context.Transactions.Where(t => t.UserID == userId
+            && t.Category.CategoryType == CategoryType.Income
+            && t.Category.CategoryID == categoryID).Sum(t => t.Amount);
+        }
         public bool InsertTransaction(Transaction transaction)
         {
             try

@@ -29,12 +29,14 @@ namespace QuanLyChiTieuCaNhan
         {
             if (e.KeyCode == Keys.F5)
             {
-                btnload.PerformClick();
+                btnHome.PerformClick();
             }
         }
         private void button4_Click(object sender, EventArgs e)
         {
-
+            this.StartPosition = FormStartPosition.CenterScreen;
+            frmBudget frmBudget = new frmBudget();
+            frmBudget.ShowDialog();
         }
         private void sidebarTimer_Tick(object sender, EventArgs e)
         {
@@ -66,11 +68,26 @@ namespace QuanLyChiTieuCaNhan
 
         private void frmBase_Load(object sender, EventArgs e)
         {
+
+            dgvChiTieuGanDay.Columns[0].HeaderCell.Style.BackColor = Color.LightGreen;
+            dgvChiTieuGanDay.Columns[1].HeaderCell.Style.BackColor = Color.LightGreen;
+            dgvChiTieuGanDay.Columns[2].HeaderCell.Style.BackColor = Color.LightGreen;
+            dgvChiTieuGanDay.Columns[3].HeaderCell.Style.BackColor = Color.LightGreen;
+
+            dgvChiTieuGanDay.Columns[0].HeaderCell.Style.ForeColor = Color.Blue;
+            dgvChiTieuGanDay.Columns[1].HeaderCell.Style.ForeColor = Color.Blue;
+            dgvChiTieuGanDay.Columns[2].HeaderCell.Style.ForeColor = Color.Blue;
+            dgvChiTieuGanDay.Columns[3].HeaderCell.Style.ForeColor = Color.Blue;
+
+            dgvChiTieuGanDay.Columns[0].HeaderCell.Style.Font = new Font("Segoe UI",10, FontStyle.Bold);
+            dgvChiTieuGanDay.Columns[1].HeaderCell.Style.Font = new Font("Segoe UI",10,FontStyle.Bold);
+            dgvChiTieuGanDay.Columns[2].HeaderCell.Style.Font = new Font("Segoe UI",10, FontStyle.Bold);
+            dgvChiTieuGanDay.Columns[3].HeaderCell.Style.Font = new Font("Segoe UI",10, FontStyle.Bold);
+
+            dgvChiTieuGanDay.EnableHeadersVisualStyles = false;
             if (UserService.CurrentUser != null)
             {
                 lblXinChao.Text = "Welcome, " + UserService.CurrentUser.FullName;
-                
-
             }
             else
             {
@@ -78,6 +95,7 @@ namespace QuanLyChiTieuCaNhan
                 lblXinChao.Text = "Please log in";
                 lblBalance.Text = $"N/A";
                 lblExpense.Text = $"N/A";
+                lblIncome.Text = $"N/A";
             }
         }
 
@@ -91,6 +109,7 @@ namespace QuanLyChiTieuCaNhan
         {
             try
             {
+                this.StartPosition = FormStartPosition.CenterScreen;
                 frmAccount frmAccount = new frmAccount();
                 frmAccount.ShowDialog();
                 if (CurrentUser.Username != null && !string.IsNullOrEmpty(CurrentUser.FullName))
@@ -100,6 +119,7 @@ namespace QuanLyChiTieuCaNhan
                     btnLogOut.Visible = true;
                     DisplayBalance();
                     DisplayExpense();
+                    DisplayIncome();
                     var listTransaction = transactionService.GetAllByUser(UserService.CurrentUser.UserID);
                     dgvChiTieuGanDay.Rows.Clear();
                     foreach (var item in listTransaction)
@@ -138,6 +158,7 @@ namespace QuanLyChiTieuCaNhan
                 btnLogOut.Visible = false;
                 lblBalance.Text = $"N/A";
                 lblExpense.Text = $"N/A";
+                dgvChiTieuGanDay.Rows.Clear();
             }   
         }
 
@@ -160,7 +181,7 @@ namespace QuanLyChiTieuCaNhan
             else
             {
                 lblBalance.Text = $"{total:c}" + "đ";
-                lblBalance.ForeColor = Color.Green;
+                lblBalance.ForeColor = Color.LimeGreen;
             }
         }
 
@@ -174,32 +195,58 @@ namespace QuanLyChiTieuCaNhan
 
             lblExpense.Text = $"{totalAmount:c}" + "đ";
         }
+        private void DisplayIncome()
+        {
+            int currentUserId = CurrentUser.UserID;
+            TransactionService transactionService = new TransactionService();
+
+
+            decimal totalAmount = transactionService.GetTotalAmountIncome(currentUserId);
+
+            lblIncome.Text = $"{totalAmount:c}" + "đ";
+        }
+
 
         private void btnTransactions_Click(object sender, EventArgs e)
         {
+            this.StartPosition = FormStartPosition.CenterScreen;
             frmTransaction frmTransaction = new frmTransaction();
             frmTransaction.Show();
         }
 
         private void btnReport_Click(object sender, EventArgs e)
         {
+            this.StartPosition = FormStartPosition.CenterScreen;
             frmReport frmReport = new frmReport();
             frmReport.Show();
         }
-
-        private void btnload_Click(object sender, EventArgs e)
+        private void btnGoals_Click(object sender, EventArgs e)
         {
-            DisplayBalance();
-            DisplayExpense();
-            var listTransaction = transactionService.GetAllByUser(UserService.CurrentUser.UserID);
-            dgvChiTieuGanDay.Rows.Clear();
-            foreach (var item in listTransaction)
+            this.StartPosition = FormStartPosition.CenterScreen;
+            frmGoal frmGoal = new frmGoal();
+            frmGoal.Show();
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            try
             {
-                int index = dgvChiTieuGanDay.Rows.Add();
-                dgvChiTieuGanDay.Rows[index].Cells[0].Value = item.TransactionID;
-                dgvChiTieuGanDay.Rows[index].Cells[1].Value = item.TransactionName;
-                dgvChiTieuGanDay.Rows[index].Cells[2].Value = item.Date;
-                dgvChiTieuGanDay.Rows[index].Cells[3].Value = item.Note;
+                DisplayBalance();
+                DisplayExpense();
+                var listTransaction = transactionService.GetAllByUser(UserService.CurrentUser.UserID);
+                dgvChiTieuGanDay.Rows.Clear();
+                foreach (var item in listTransaction)
+                {
+                    int index = dgvChiTieuGanDay.Rows.Add();
+                    dgvChiTieuGanDay.Rows[index].Cells[0].Value = item.TransactionID;
+                    dgvChiTieuGanDay.Rows[index].Cells[1].Value = item.TransactionName;
+                    dgvChiTieuGanDay.Rows[index].Cells[2].Value = item.Date;
+                    dgvChiTieuGanDay.Rows[index].Cells[3].Value = item.Note;
+                }
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Bạn Chưa Đăng Nhập", "Error", MessageBoxButtons.OK);
             }
         }
     }

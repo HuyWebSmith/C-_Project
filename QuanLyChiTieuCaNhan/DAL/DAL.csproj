@@ -59,6 +59,10 @@
     <Compile Include="Migrations\202501021817431_TatRangBuocSuaXoaKhoaNgoai.Designer.cs">
       <DependentUpon>202501021817431_TatRangBuocSuaXoaKhoaNgoai.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202501051724431_ThemBudgetName.cs" />
+    <Compile Include="Migrations\202501051724431_ThemBudgetName.Designer.cs">
+      <DependentUpon>202501051724431_ThemBudgetName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Budget.cs" />
     <Compile Include="Models\Categories.cs" />
@@ -83,6 +87,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202501021817431_TatRangBuocSuaXoaKhoaNgoai.resx">
       <DependentUpon>202501021817431_TatRangBuocSuaXoaKhoaNgoai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202501051724431_ThemBudgetName.resx">
+      <DependentUpon>202501051724431_ThemBudgetName.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Models\rptQuanLyChiTieu.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

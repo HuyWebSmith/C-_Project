@@ -38,17 +38,20 @@ namespace QuanLyChiTieuCaNhan
                 temp.Note = item.Note;
                 reportList.Add(temp);
             }
+            ReportParameter[] parameters = new ReportParameter[1];
+            parameters[0] = new ReportParameter("HoTenKhachHang", CurrentUser.FullName);
+
             foreach (var item in listreport)
             {
                 Reportss temp = new Reportss();
-                temp.ReportID  = item.ReportID;
+                temp.ReportID = item.ReportID;
                 temp.StartAReportDate = item.StartAReportDate;
-                temp.EndAReportDate =item.EndAReportDate;
+                temp.EndAReportDate = item.EndAReportDate;
                 temp.TotalIncome = item.TotalIncome;
                 temp.TotalExpense = item.TotalExpense;
                 temp.ReportDetails = item.ReportDetails;
                 reportss.Add(temp);
-    }
+            }
 
             reportViewer1.LocalReport.ReportPath = "C:\\Users\\nquan\\Desktop\\.NET\\QuanLyChiTieuCaNhan\\DAL\\Models\\rptQuanLyChiTieu.rdlc";
             var TransactionReport = new ReportDataSource("TransactionReport", reportList);
@@ -56,7 +59,7 @@ namespace QuanLyChiTieuCaNhan
             reportViewer1.LocalReport.DataSources.Clear();
             reportViewer1.LocalReport.DataSources.Add(TransactionReport);
             reportViewer1.LocalReport.DataSources.Add(DataReport);
-            
+            reportViewer1.LocalReport.SetParameters(parameters);
             this.reportViewer1.RefreshReport();
         }
     }

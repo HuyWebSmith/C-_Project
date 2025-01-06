@@ -9,22 +9,37 @@ namespace DAL.enums
     public enum CategoryType
     {
         Income,  // Tương đương 'Income' -- Loại (thu nhập/chi tiêu)
-        Expense,  // Tương đương 'Expense'
+        Expense  // Tương đương 'Expense'
         // Thu nhập
-        Salary,           // Lương
-        Bonus,            // Thưởng
-        InvestmentIncome, // Thu nhập từ đầu tư
-        Freelance,        // Thu nhập tự do
+      
+    }
+    // Danh mục thu nhập
+    public enum DanhMucThuNhap
+    {
+        Luong,         // Lương
+        KinhDoanh,     // Kinh doanh
+        DauTu,         // Đầu tư
+        ThuNhapTuNha,  // Thu nhập từ cho thuê nhà
+        ThuNhapTuBanHang, // Thu nhập từ bán hàng
+        Thuong,        // Tiền thưởng
+        TroCap,        // Trợ cấp
+        ThuNhapKhac    // Thu nhập khác
+    }
 
-        // Chi tiêu
-        Food,             // Ăn uống
-        Entertainment,    // Giải trí
-        Housing,          // Tiền nhà
-        Transportation,   // Di chuyển
-        Utilities,        // Hóa đơn tiện ích
-        Health,           // Chăm sóc sức khỏe
-        Education,        // Giáo dục
-        Shopping,         // Mua sắm
-        Miscellaneous     // Chi tiêu khác
+    // Danh mục chi tiêu
+    public enum DanhMucChiTieu
+    {
+        ThucPham,          // Thực phẩm
+        TienThueNha,       // Tiền thuê nhà
+        TienDienNuoc,      // Tiền điện nước
+        DiLai,             // Chi phí đi lại
+        GiaiTri,           // Giải trí
+        MuaSam,            // Mua sắm
+        ChuyenGiaDinh,     // Chi phí cho gia đình
+        YTe,               // Y tế
+        GiaoDuc,           // Giáo dục
+        TienTho,           // Tiền thờ cúng
+        DuLich,            // Du lịch
+        ChiTieuKhac        // Chi tiêu khác
     }
 }

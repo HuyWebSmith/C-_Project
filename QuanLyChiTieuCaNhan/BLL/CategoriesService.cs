@@ -34,5 +34,20 @@ namespace BLL
                        .Select(t => t.CategoryID).FirstOrDefault();
 
         }
+
+        public Categories GetCategoryById(int categoryId)
+        {
+            
+            try
+            {
+                SpendingManagerDBContext _context = new SpendingManagerDBContext();
+                return _context.Categories
+                    .FirstOrDefault(c => c.CategoryID == categoryId);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Lỗi khi lấy danh mục: {ex.Message}");
+            }
+        }
     }
 }

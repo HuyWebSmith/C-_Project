@@ -37,6 +37,13 @@
       </ConnectionProperties>
       <rd:DataSourceID>73fc4c8c-28fb-4ca0-b5a0-9b7278798962</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="DALModels5">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>9d71b1ef-de91-437c-a64f-aac738e80d20</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="TransactionReport">
@@ -66,6 +73,43 @@
         <rd:DataSetName>DAL.Models</rd:DataSetName>
         <rd:TableName>TransactionReport</rd:TableName>
         <rd:ObjectDataSourceType>DAL.Models.TransactionReport, DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="DataReport">
+      <Query>
+        <DataSourceName>DALModels5</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="EndAReportDate">
+          <DataField>EndAReportDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="ReportDetails">
+          <DataField>ReportDetails</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ReportID">
+          <DataField>ReportID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="StartAReportDate">
+          <DataField>StartAReportDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="TotalExpense">
+          <DataField>TotalExpense</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="TotalIncome">
+          <DataField>TotalIncome</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>DAL.Models</rd:DataSetName>
+        <rd:TableName>Reportss</rd:TableName>
+        <rd:ObjectDataSourceType>DAL.Models.Reportss, DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -392,10 +436,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>TransactionReport</DataSetName>
-            <Top>2.36333in</Top>
+            <Top>1.47166in</Top>
             <Left>0.87167in</Left>
             <Height>0.5in</Height>
-            <Width>7.43333in</Width>
+            <Width>7.43334in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -403,6 +447,40 @@
               </Border>
             </Style>
           </Tablix>
+          <Textbox Name="Textbox2">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Người Dùng: </Value>
+                    <Style />
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Parameters!HoTenKhachHang.Value</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox2</rd:DefaultName>
+            <Top>0.92167in</Top>
+            <Left>0.87167in</Left>
+            <Height>0.25in</Height>
+            <Width>2.55834in</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
         <Height>4.74167in</Height>
         <Style />
@@ -417,10 +495,23 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="HoTenKhachHang">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+  </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>4</NumberOfColumns>
       <NumberOfRows>2</NumberOfRows>
+      <CellDefinitions>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>HoTenKhachHang</ParameterName>
+        </CellDefinition>
+      </CellDefinitions>
     </GridLayoutDefinition>
   </ReportParametersLayout>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>

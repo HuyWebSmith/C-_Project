@@ -49,6 +49,8 @@
             this.btnLogOut = new System.Windows.Forms.Button();
             this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.lblIncome = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.lblExpense = new System.Windows.Forms.Label();
             this.lblBalance = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -58,13 +60,15 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblXinChao = new System.Windows.Forms.Label();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
             this.lblDate = new System.Windows.Forms.Label();
             this.curentDaytimer = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.btnload = new System.Windows.Forms.Button();
             this.sidebar.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menuBtn)).BeginInit();
@@ -146,6 +150,7 @@
             this.btnHome.Text = "                  Home";
             this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHome.UseVisualStyleBackColor = false;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // panel3
             // 
@@ -226,6 +231,7 @@
             this.btnGoals.Text = "                  Goals";
             this.btnGoals.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGoals.UseVisualStyleBackColor = false;
+            this.btnGoals.Click += new System.EventHandler(this.btnGoals_Click);
             // 
             // panel6
             // 
@@ -319,22 +325,50 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMain.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlMain.Controls.Add(this.lblIncome);
+            this.pnlMain.Controls.Add(this.label2);
             this.pnlMain.Controls.Add(this.lblExpense);
             this.pnlMain.Controls.Add(this.lblBalance);
             this.pnlMain.Controls.Add(this.label4);
             this.pnlMain.Controls.Add(this.label3);
             this.pnlMain.Controls.Add(this.dgvChiTieuGanDay);
+            this.pnlMain.Controls.Add(this.panel9);
+            this.pnlMain.Controls.Add(this.panel10);
+            this.pnlMain.Controls.Add(this.panel11);
             this.pnlMain.Location = new System.Drawing.Point(101, 127);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(1266, 654);
             this.pnlMain.TabIndex = 2;
+            // 
+            // lblIncome
+            // 
+            this.lblIncome.AutoSize = true;
+            this.lblIncome.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIncome.ForeColor = System.Drawing.Color.LimeGreen;
+            this.lblIncome.Location = new System.Drawing.Point(42, 273);
+            this.lblIncome.Name = "lblIncome";
+            this.lblIncome.Size = new System.Drawing.Size(128, 45);
+            this.lblIncome.TabIndex = 7;
+            this.lblIncome.Text = "Money";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.LimeGreen;
+            this.label2.Location = new System.Drawing.Point(45, 209);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(105, 28);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Thu Nhập";
             // 
             // lblExpense
             // 
             this.lblExpense.AutoSize = true;
             this.lblExpense.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblExpense.ForeColor = System.Drawing.Color.Red;
-            this.lblExpense.Location = new System.Drawing.Point(39, 235);
+            this.lblExpense.Location = new System.Drawing.Point(53, 434);
             this.lblExpense.Name = "lblExpense";
             this.lblExpense.Size = new System.Drawing.Size(128, 45);
             this.lblExpense.TabIndex = 5;
@@ -344,8 +378,8 @@
             // 
             this.lblBalance.AutoSize = true;
             this.lblBalance.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBalance.ForeColor = System.Drawing.Color.LimeGreen;
-            this.lblBalance.Location = new System.Drawing.Point(39, 97);
+            this.lblBalance.ForeColor = System.Drawing.Color.Black;
+            this.lblBalance.Location = new System.Drawing.Point(42, 98);
             this.lblBalance.Name = "lblBalance";
             this.lblBalance.Size = new System.Drawing.Size(128, 45);
             this.lblBalance.TabIndex = 4;
@@ -356,22 +390,22 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(92, 177);
+            this.label4.Location = new System.Drawing.Point(56, 370);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(201, 28);
+            this.label4.Size = new System.Drawing.Size(78, 28);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Số Tiền Đã Sử Dụng";
+            this.label4.Text = "Chi Phí";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.LimeGreen;
-            this.label3.Location = new System.Drawing.Point(92, 41);
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(45, 40);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(154, 28);
+            this.label3.Size = new System.Drawing.Size(112, 28);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Số Dư Hiện Tại";
+            this.label3.Text = "Tổng cộng";
             // 
             // dgvChiTieuGanDay
             // 
@@ -387,9 +421,10 @@
             this.Column4});
             this.dgvChiTieuGanDay.Location = new System.Drawing.Point(680, 0);
             this.dgvChiTieuGanDay.Name = "dgvChiTieuGanDay";
+            this.dgvChiTieuGanDay.ReadOnly = true;
             this.dgvChiTieuGanDay.RowHeadersWidth = 51;
             this.dgvChiTieuGanDay.RowTemplate.Height = 24;
-            this.dgvChiTieuGanDay.Size = new System.Drawing.Size(586, 654);
+            this.dgvChiTieuGanDay.Size = new System.Drawing.Size(584, 652);
             this.dgvChiTieuGanDay.TabIndex = 0;
             // 
             // Column1
@@ -397,24 +432,52 @@
             this.Column1.HeaderText = "ID";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "Loại ";
+            this.Column2.HeaderText = "Chi Tiêu Gần Đây";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Ngày Chi";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Ghi Chú";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // panel9
+            // 
+            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel9.Location = new System.Drawing.Point(30, 29);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(420, 132);
+            this.panel9.TabIndex = 8;
+            // 
+            // panel10
+            // 
+            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel10.Location = new System.Drawing.Point(30, 197);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(420, 138);
+            this.panel10.TabIndex = 9;
+            // 
+            // panel11
+            // 
+            this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel11.Location = new System.Drawing.Point(30, 358);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(420, 138);
+            this.panel11.TabIndex = 10;
             // 
             // pictureBox1
             // 
@@ -460,23 +523,12 @@
             // 
             this.curentDaytimer.Tick += new System.EventHandler(this.curentDaytimer_Tick);
             // 
-            // btnload
-            // 
-            this.btnload.Location = new System.Drawing.Point(1281, 98);
-            this.btnload.Name = "btnload";
-            this.btnload.Size = new System.Drawing.Size(75, 23);
-            this.btnload.TabIndex = 7;
-            this.btnload.Text = "Load";
-            this.btnload.UseVisualStyleBackColor = true;
-            this.btnload.Click += new System.EventHandler(this.btnload_Click);
-            // 
             // frmBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(87)))), ((int)(((byte)(175)))));
             this.ClientSize = new System.Drawing.Size(1368, 780);
-            this.Controls.Add(this.btnload);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.sidebar);
             this.Controls.Add(this.pnlMain);
@@ -513,8 +565,6 @@
         private System.Windows.Forms.Button btnTransactions;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnBudgets;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button btnGoals;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnReport;
         private System.Windows.Forms.PictureBox menuBtn;
@@ -534,11 +584,17 @@
         private System.Windows.Forms.Button btnDangNhap;
         private System.Windows.Forms.Label lblBalance;
         private System.Windows.Forms.Label lblExpense;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button btnGoals;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Button btnload;
+        private System.Windows.Forms.Label lblIncome;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel panel11;
     }
 }

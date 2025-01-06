@@ -15,6 +15,7 @@ namespace DAL.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int BudgetID { get; set; }
+        [Required] public string BudgetName { get; set; }
         [Required] public decimal AmountLimit { get; set; } /*-- Hạn mức ngân sách*/
         [Required] public DateTime StartDate { get; set; }
         [Required] public DateTime EndDate { get; set; }

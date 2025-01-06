@@ -16,8 +16,10 @@ namespace QuanLyChiTieuCaNhan
 {
     public partial class frmTransaction : Form
     {
+
         private readonly CategoriesService categoriesService = new CategoriesService();
         private readonly TransactionService transactionService = new TransactionService();
+        private readonly BudgetService budgetService = new BudgetService();
         public int currentUserId = CurrentUser.UserID;
         public int currentTransactionId;
         public frmTransaction()
@@ -39,7 +41,7 @@ namespace QuanLyChiTieuCaNhan
             this.cmbDanhMuc.DataSource = listCategories;
             this.cmbDanhMuc.DisplayMember = "CategoryName";
             this.cmbDanhMuc.ValueMember = "CategoryID";
-            this.cmbDanhMuc.SelectedIndex = 0;
+            this.cmbDanhMuc.SelectedIndex = 0;  
         }
 
         public void BridGrid()
@@ -66,26 +68,73 @@ namespace QuanLyChiTieuCaNhan
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            Transaction transaction = new Transaction
+            try
             {
-                CategoryID = (int)cmbDanhMuc.SelectedValue,
-                TransactionName = txtTenGiaoDich.Text,
-                Amount = decimal.Parse(txtSoTienGiaoDich.Text),
-                Date = DateTime.Now,
-                Note = rtbGhiChu.Text,
-                UserID = CurrentUser.UserID
-            };
-            transactionService.InsertTransaction(transaction);
-            BridGrid();
+                // Kiểm tra xem giá trị nhập vào có hợp lệ không
+                decimal amount;
+                if (!decimal.TryParse(txtSoTienGiaoDich.Text, out amount))
+                {
+                    MessageBox.Show("Vui lòng nhập một số hợp lệ cho số tiền giao dịch.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; 
+                }
+
+                Transaction transaction = new Transaction
+                {
+                    CategoryID = (int)cmbDanhMuc.SelectedValue,
+                    TransactionName = txtTenGiaoDich.Text,
+                    Amount = amount,
+                    Date = DateTime.Now,
+                    Note = rtbGhiChu.Text,
+                    UserID = CurrentUser.UserID
+                };
+
+                var budget = budgetService.GetBudgetByCategoryAndUser(transaction.CategoryID, transaction.UserID);
+                if (budget != null) 
+                {
+                    var tongSoDu = transactionService.GetTotalExpensesByCategoryAndUser(transaction.CategoryID, transaction.UserID);
+                    if (tongSoDu + transaction.Amount > budget.AmountLimit)
+                    {
+
+                        var result = MessageBox.Show(
+                            "Số tiền giao dịch vượt quá ngân sách. Bạn có muốn tiếp tục thêm giao dịch không?",
+                            "Cảnh báo vượt ngân sách",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning
+                        );
+
+                        if (result == DialogResult.No)
+                        {
+                            return; 
+                        }
+                    }
+                }
+
+                transactionService.InsertTransaction(transaction);
+                BridGrid();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
         public void GetSelectRows(int selectedRow)
         {
-            cmbDanhMuc.SelectedItem = dgvTransaction.Rows[selectedRow].Cells[0].Value;
-            currentTransactionId = Convert.ToInt32(dgvTransaction.Rows[selectedRow].Cells[1].Value);
-            txtTenGiaoDich.Text = dgvTransaction.Rows[selectedRow].Cells[2].Value.ToString();
-            txtSoTienGiaoDich.Text = dgvTransaction.Rows[selectedRow].Cells[3].Value.ToString();
-            dtpNgayThucHien.Text = dgvTransaction.Rows[selectedRow].Cells[4].Value.ToString();
-            rtbGhiChu.Text = dgvTransaction.Rows[selectedRow].Cells[5].Value.ToString();
+            try
+            {
+                cmbDanhMuc.SelectedItem = dgvTransaction.Rows[selectedRow].Cells[0].Value ?? "";
+                currentTransactionId = dgvTransaction.Rows[selectedRow].Cells[1].Value != null
+                    ? Convert.ToInt32(dgvTransaction.Rows[selectedRow].Cells[1].Value)
+                    : 0;
+                txtTenGiaoDich.Text = dgvTransaction.Rows[selectedRow].Cells[2].Value?.ToString() ?? "";
+                txtSoTienGiaoDich.Text = dgvTransaction.Rows[selectedRow].Cells[3].Value?.ToString() ?? "0";
+                dtpNgayThucHien.Text = dgvTransaction.Rows[selectedRow].Cells[4].Value?.ToString() ?? DateTime.Now.ToString();
+                rtbGhiChu.Text = dgvTransaction.Rows[selectedRow].Cells[5].Value?.ToString() ?? "";
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void dgvTransaction_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -175,7 +224,7 @@ namespace QuanLyChiTieuCaNhan
                         }
                         else
                         {
-                            MessageBox.Show("Cập nhật thất bại. Vui lòng chọn danh mục.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Cập nhật thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }

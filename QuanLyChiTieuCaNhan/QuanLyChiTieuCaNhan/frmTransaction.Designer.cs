@@ -43,15 +43,17 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtSoTienGiaoDich = new System.Windows.Forms.TextBox();
             this.dtpNgayThucHien = new System.Windows.Forms.DateTimePicker();
-            this.txtTenGiaoDich = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbDanhMuc = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.txtTenGiaoDich = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvTransaction
@@ -205,13 +207,6 @@
             this.dtpNgayThucHien.Size = new System.Drawing.Size(200, 22);
             this.dtpNgayThucHien.TabIndex = 6;
             // 
-            // txtTenGiaoDich
-            // 
-            this.txtTenGiaoDich.Location = new System.Drawing.Point(161, 118);
-            this.txtTenGiaoDich.Name = "txtTenGiaoDich";
-            this.txtTenGiaoDich.Size = new System.Drawing.Size(304, 22);
-            this.txtTenGiaoDich.TabIndex = 5;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -260,18 +255,34 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(507, 23);
+            this.label1.Location = new System.Drawing.Point(497, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(340, 50);
             this.label1.TabIndex = 2;
             this.label1.Text = "Quản Lý Giao Dịch";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.MediumPurple;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(0, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1329, 87);
+            this.panel1.TabIndex = 3;
+            // 
+            // txtTenGiaoDich
+            // 
+            this.txtTenGiaoDich.Location = new System.Drawing.Point(161, 118);
+            this.txtTenGiaoDich.Name = "txtTenGiaoDich";
+            this.txtTenGiaoDich.Size = new System.Drawing.Size(304, 22);
+            this.txtTenGiaoDich.TabIndex = 5;
             // 
             // frmTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1327, 637);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvTransaction);
             this.Name = "frmTransaction";
@@ -280,8 +291,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -290,7 +302,6 @@
         private System.Windows.Forms.DataGridView dgvTransaction;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtTenGiaoDich;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -309,5 +320,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txtTenGiaoDich;
     }
 }
