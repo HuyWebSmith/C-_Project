@@ -1,0 +1,16 @@
+C:\Users\nquan\Desktop\.NET\QuanLyChiTieuCaNhan\DAL\bin\Debug\DAL.dll.config
+C:\Users\nquan\Desktop\.NET\QuanLyChiTieuCaNhan\DAL\bin\Debug\DAL.dll
+C:\Users\nquan\Desktop\.NET\QuanLyChiTieuCaNhan\DAL\bin\Debug\DAL.pdb
+C:\Users\nquan\Desktop\.NET\QuanLyChiTieuCaNhan\DAL\bin\Debug\EntityFramework.dll
+C:\Users\nquan\Desktop\.NET\QuanLyChiTieuCaNhan\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\nquan\Desktop\.NET\QuanLyChiTieuCaNhan\DAL\bin\Debug\EntityFramework.xml
+C:\Users\nquan\Desktop\.NET\QuanLyChiTieuCaNhan\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\nquan\Desktop\.NET\QuanLyChiTieuCaNhan\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\nquan\Desktop\.NET\QuanLyChiTieuCaNhan\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\nquan\Desktop\.NET\QuanLyChiTieuCaNhan\DAL\obj\Debug\DAL.csproj.Up2Date
+C:\Users\nquan\Desktop\.NET\QuanLyChiTieuCaNhan\DAL\obj\Debug\DAL.dll
+C:\Users\nquan\Desktop\.NET\QuanLyChiTieuCaNhan\DAL\obj\Debug\DAL.pdb
+C:\Users\nquan\Desktop\.NET\QuanLyChiTieuCaNhan\DAL\obj\Debug\DAL.Migrations.TatRangBuocSuaXoaKhoaNgoai.resources
+C:\Users\nquan\Desktop\.NET\QuanLyChiTieuCaNhan\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
+C:\Users\nquan\Desktop\.NET\QuanLyChiTieuCaNhan\DAL\bin\Debug\Models\rptQuanLyChiTieu.rdlc
+C:\Users\nquan\Desktop\.NET\QuanLyChiTieuCaNhan\DAL\obj\Debug\DAL.Migrations.ThemBudgetName.resources
