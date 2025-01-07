@@ -34,7 +34,17 @@ namespace QuanLyChiTieuCaNhan
             
             
         }
+        public bool ischecked(DateTime endDate)
+        {
+            DateTime currentDate = DateTime.Now;
 
+            if (currentDate >= endDate)
+            {
+                MessageBox.Show("Có mục tiêu trong danh sách đã đến ngày kết thúc. Vui lòng cập nhật trạng thái!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return true;
+            }
+            return false;
+        }
         public void BridGrid()
         {
             decimal Income = transactionService.GetTotalAmountIncome(currentUserId);
@@ -53,6 +63,15 @@ namespace QuanLyChiTieuCaNhan
 
                 dgvGoal.Rows[index].Cells[4].Value = item.DueDate;
                 dgvGoal.Rows[index].Cells[5].Value = item.Status;
+                if (ischecked(item.DueDate))
+                {
+                    MessageBox.Show($"Mục Tiêu{item.GoalName} đã hết hạn.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+                else
+                {
+                    Console.WriteLine("Vẫn còn trong hạn.");
+                }
 
             }
         }

@@ -43,7 +43,7 @@ namespace QuanLyChiTieuCaNhan
             this.cmbDanhMuc.ValueMember = "CategoryID";
             this.cmbDanhMuc.SelectedIndex = 0;  
         }
-
+        
         public void BridGrid()
         {
             int currentUserId = CurrentUser.UserID;
