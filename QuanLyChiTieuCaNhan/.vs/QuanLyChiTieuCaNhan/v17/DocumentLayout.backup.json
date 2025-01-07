@@ -3,32 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\nquan\\Desktop\\.NET\\QuanLyChiTieuCaNhan\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\nquan\\Desktop\\.NET\\QuanLyChiTieuCaNhan\\QuanLyChiTieuCaNhan\\frmTransaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:QuanLyChiTieuCaNhan\\frmTransaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{857399E5-A062-4287-9C9A-A81C499EA84C}|QuanLyChiTieuCaNhan\\GUI.csproj|c:\\users\\nquan\\desktop\\.net\\quanlychitieucanhan\\quanlychitieucanhan\\frmtransaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{857399E5-A062-4287-9C9A-A81C499EA84C}|QuanLyChiTieuCaNhan\\GUI.csproj|solutionrelative:quanlychitieucanhan\\frmtransaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\nquan\\Desktop\\.NET\\QuanLyChiTieuCaNhan\\QuanLyChiTieuCaNhan\\frmAccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:QuanLyChiTieuCaNhan\\frmAccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{857399E5-A062-4287-9C9A-A81C499EA84C}|QuanLyChiTieuCaNhan\\GUI.csproj|C:\\Users\\nquan\\Desktop\\.NET\\QuanLyChiTieuCaNhan\\QuanLyChiTieuCaNhan\\frmAccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{857399E5-A062-4287-9C9A-A81C499EA84C}|QuanLyChiTieuCaNhan\\GUI.csproj|solutionrelative:QuanLyChiTieuCaNhan\\frmAccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\nquan\\Desktop\\.NET\\QuanLyChiTieuCaNhan\\quanlychitieucanhan\\frmaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:quanlychitieucanhan\\frmaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{857399E5-A062-4287-9C9A-A81C499EA84C}|QuanLyChiTieuCaNhan\\GUI.csproj|C:\\Users\\nquan\\Desktop\\.NET\\QuanLyChiTieuCaNhan\\quanlychitieucanhan\\frmaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{857399E5-A062-4287-9C9A-A81C499EA84C}|QuanLyChiTieuCaNhan\\GUI.csproj|solutionrelative:quanlychitieucanhan\\frmaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\nquan\\Desktop\\.NET\\QuanLyChiTieuCaNhan\\quanlychitieucanhan\\frmbudget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:quanlychitieucanhan\\frmbudget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{857399E5-A062-4287-9C9A-A81C499EA84C}|QuanLyChiTieuCaNhan\\GUI.csproj|C:\\Users\\nquan\\Desktop\\.NET\\QuanLyChiTieuCaNhan\\quanlychitieucanhan\\frmbudget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{857399E5-A062-4287-9C9A-A81C499EA84C}|QuanLyChiTieuCaNhan\\GUI.csproj|solutionrelative:quanlychitieucanhan\\frmbudget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\nquan\\Desktop\\.NET\\QuanLyChiTieuCaNhan\\quanlychitieucanhan\\frmreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:quanlychitieucanhan\\frmreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{857399E5-A062-4287-9C9A-A81C499EA84C}|QuanLyChiTieuCaNhan\\GUI.csproj|C:\\Users\\nquan\\Desktop\\.NET\\QuanLyChiTieuCaNhan\\quanlychitieucanhan\\frmreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{857399E5-A062-4287-9C9A-A81C499EA84C}|QuanLyChiTieuCaNhan\\GUI.csproj|solutionrelative:quanlychitieucanhan\\frmreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\nquan\\Desktop\\.NET\\QuanLyChiTieuCaNhan\\quanlychitieucanhan\\frmgoal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:quanlychitieucanhan\\frmgoal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{857399E5-A062-4287-9C9A-A81C499EA84C}|QuanLyChiTieuCaNhan\\GUI.csproj|C:\\Users\\nquan\\Desktop\\.NET\\QuanLyChiTieuCaNhan\\quanlychitieucanhan\\frmgoal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{857399E5-A062-4287-9C9A-A81C499EA84C}|QuanLyChiTieuCaNhan\\GUI.csproj|solutionrelative:quanlychitieucanhan\\frmgoal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\nquan\\Desktop\\.NET\\QuanLyChiTieuCaNhan\\quanlychitieucanhan\\frmbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:quanlychitieucanhan\\frmbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{857399E5-A062-4287-9C9A-A81C499EA84C}|QuanLyChiTieuCaNhan\\GUI.csproj|C:\\Users\\nquan\\Desktop\\.NET\\QuanLyChiTieuCaNhan\\quanlychitieucanhan\\frmbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{857399E5-A062-4287-9C9A-A81C499EA84C}|QuanLyChiTieuCaNhan\\GUI.csproj|solutionrelative:quanlychitieucanhan\\frmbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,8 +62,7 @@
               "RelativeToolTip": "QuanLyChiTieuCaNhan\\frmAccount.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAADUAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T14:19:13.686Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-07T14:19:13.686Z"
             },
             {
               "$type": "Document",
