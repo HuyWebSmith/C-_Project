@@ -78,20 +78,20 @@ namespace BLL
             }
         }
 
-        public decimal? GetBudgetByCategoryAndUser(int categoryId, int userId)
+        public decimal GetBudgetByCategoryAndUser(int categoryId, int userId)
         {
             try
             {
-                SpendingManagerDBContext _context = new SpendingManagerDBContext();
-                var totalAmount = _context.Budgets
-                .Where(b => b.CategoryID == categoryId && b.UserID == userId)
-                .Sum(b => (decimal?)b.AmountLimit); // Ép kiểu sang nullable decimal
-                if (totalAmount == 0)
+                using (var _context = new SpendingManagerDBContext())
                 {
-                    return null;
-                }
+                    // Lấy ngân sách của người dùng cho danh mục cụ thể, trả về 0 nếu không có ngân sách
+                    var budget = _context.Budgets
+                        .Where(b => b.CategoryID == categoryId && b.UserID == userId)
+                        .Select(b => b.AmountLimit)
+                        .FirstOrDefault(); // Lấy giá trị đầu tiên, hoặc 0 nếu không có ngân sách
 
-                return totalAmount;
+                    return budget;
+                }
             }
             catch (Exception ex)
             {

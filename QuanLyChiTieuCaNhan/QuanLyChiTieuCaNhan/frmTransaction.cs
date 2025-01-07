@@ -71,51 +71,31 @@ namespace QuanLyChiTieuCaNhan
             try
             {
                 // Kiểm tra xem giá trị nhập vào có hợp lệ không
-                decimal amount;
-                if (!decimal.TryParse(txtSoTienGiaoDich.Text, out amount))
+
+                if (string.IsNullOrEmpty(txtSoTienGiaoDich.Text) || !decimal.TryParse(txtSoTienGiaoDich.Text, out decimal amount))
                 {
                     MessageBox.Show("Vui lòng nhập một số hợp lệ cho số tiền giao dịch.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return; 
+                    return;
                 }
 
+                if (cmbDanhMuc.SelectedValue == null || (int)cmbDanhMuc.SelectedValue == 0)
+                {
+                    MessageBox.Show("Vui lòng chọn danh mục .", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 Transaction transaction = new Transaction
                 {
                     CategoryID = (int)cmbDanhMuc.SelectedValue,
                     TransactionName = txtTenGiaoDich.Text,
-                    Amount = amount,
+                    Amount = decimal.Parse(txtSoTienGiaoDich.Text),
                     Date = DateTime.Now,
                     Note = rtbGhiChu.Text,
                     UserID = CurrentUser.UserID
                 };
 
-                decimal? budget = budgetService.GetBudgetByCategoryAndUser(transaction.CategoryID, transaction.UserID);
-                var tongSoDu = transactionService.GetTotalExpensesByCategoryAndUser(transaction.CategoryID, transaction.UserID);
-                if (budget == null)
-                {
-                    transactionService.InsertTransaction(transaction);
-                    BridGrid(); // Làm mới dữ liệu trên lưới
-                    MessageBox.Show("Giao dịch đã được thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-
-                }
-                if (tongSoDu + transaction.Amount > budget)
-                {
-
-                var result = MessageBox.Show(
-                    "Số tiền giao dịch vượt quá ngân sách. Bạn có muốn tiếp tục thêm giao dịch không?",
-                    "Cảnh báo vượt ngân sách",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning
-                );
-
-                if (result == DialogResult.No)
-                {
-                    return; 
-                }
-                }   
-
+                
                 transactionService.InsertTransaction(transaction);
-                BridGrid();
+                BridGrid(); // Làm mới dữ liệu trên lưới
                 MessageBox.Show("Giao dịch đã được thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -128,7 +108,7 @@ namespace QuanLyChiTieuCaNhan
         {
             try
             {
-                cmbDanhMuc.SelectedItem = dgvTransaction.Rows[selectedRow].Cells[0].Value ?? "";
+                cmbDanhMuc.SelectedValue = dgvTransaction.Rows[selectedRow].Cells[0].Value ?? "";
                 currentTransactionId = dgvTransaction.Rows[selectedRow].Cells[1].Value != null
                     ? Convert.ToInt32(dgvTransaction.Rows[selectedRow].Cells[1].Value)
                     : 0;

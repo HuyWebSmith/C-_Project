@@ -26,7 +26,7 @@ namespace QuanLyChiTieuCaNhan
         public int currentBudgetId;
         private void frmBudget_Load(object sender, EventArgs e)
         {
-            var listCategories = categoriesService.GetAllByUser(currentUserId);
+             var listCategories = categoriesService.GetAllByUser(currentUserId);
             var listBudget = budgetService.GetAllByUser(currentUserId);
             FillCombobox(listCategories);
             BridGrid();
