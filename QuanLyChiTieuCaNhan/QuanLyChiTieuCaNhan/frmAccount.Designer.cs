@@ -32,15 +32,14 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
             this.txtPasswordLog = new System.Windows.Forms.TextBox();
             this.txtUserNameLog = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnCreateAcc = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -48,9 +47,13 @@
             this.txtPasswordCrea = new System.Windows.Forms.TextBox();
             this.txtUserNameCrea = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -62,10 +65,10 @@
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.btnLogin);
-            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.txtPasswordLog);
             this.panel1.Controls.Add(this.txtUserNameLog);
             this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Enabled = false;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -106,18 +109,6 @@
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.label7.Location = new System.Drawing.Point(318, 259);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(151, 23);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Forgot Password?";
-            // 
             // txtPasswordLog
             // 
             this.txtPasswordLog.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -147,12 +138,19 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Login";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(561, 522);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.btnCreateAcc);
-            this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.txtPhone);
             this.panel2.Controls.Add(this.txtEmail);
@@ -160,6 +158,7 @@
             this.panel2.Controls.Add(this.txtPasswordCrea);
             this.panel2.Controls.Add(this.txtUserNameCrea);
             this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.groupBox2);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(573, 522);
@@ -198,17 +197,6 @@
             this.btnCreateAcc.Text = "Create Account";
             this.btnCreateAcc.UseVisualStyleBackColor = false;
             this.btnCreateAcc.Click += new System.EventHandler(this.btnCreateAcc_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.label4.Location = new System.Drawing.Point(307, 363);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(147, 17);
-            this.label4.TabIndex = 8;
-            this.label4.Text = " Terms and Conditions";
             // 
             // label1
             // 
@@ -276,6 +264,26 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "SignUp";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Location = new System.Drawing.Point(6, 0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(561, 522);
+            this.groupBox2.TabIndex = 17;
+            this.groupBox2.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label4.Location = new System.Drawing.Point(320, 362);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(147, 17);
+            this.label4.TabIndex = 8;
+            this.label4.Text = " Terms and Conditions";
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Location = new System.Drawing.Point(12, 12);
@@ -305,6 +313,8 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -332,9 +342,11 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtPasswordLog;
         private System.Windows.Forms.TextBox txtUserNameLog;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

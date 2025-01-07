@@ -17,6 +17,8 @@ namespace QuanLyChiTieuCaNhan
     public partial class frmAccount : Form
     {
         private readonly UserService _userService = new UserService();
+        private readonly CategoriesService categoriesService = new CategoriesService();
+
         public frmAccount()
         {
             InitializeComponent();
@@ -26,6 +28,14 @@ namespace QuanLyChiTieuCaNhan
         {
             panel1.Enabled = true;
             panel2.Enabled = false;
+
+            txtUserNameCrea.SetPlaceholder("User Name");
+            txtPasswordCrea.SetPlaceholder("Password");
+            txtFullName.SetPlaceholder("Full Name");
+            txtEmail.SetPlaceholder("Email");
+            txtPhone.SetPlaceholder("Phone");
+            txtUserNameLog.SetPlaceholder("User Name");
+            txtPasswordLog.SetPlaceholder("Password");
         }
 
         private void label8_Click(object sender, EventArgs e)
@@ -68,12 +78,22 @@ namespace QuanLyChiTieuCaNhan
                     Phone = txtPhone.Text,
                 };
                 _userService.InsertUser(newUser);
+                categoriesService.insertCategory(newUser.UserID);
                 MessageBox.Show("Tạo Tài Khoản Thành Công");
                 DialogResult result = MessageBox.Show("Đã có tài khoản đăng nhập?",
                     "Confirmation", MessageBoxButtons.OKCancel);
                 if (result == DialogResult.OK)
                 {
                     panel1.Enabled = true;
+                    panel2.Enabled = false;
+
+                    txtUserNameCrea.SetPlaceholder("User Name");
+                    txtPasswordCrea.SetPlaceholder("Password");
+                    txtFullName.SetPlaceholder("Full Name");
+                    txtEmail.SetPlaceholder("Email");
+                    txtPhone.SetPlaceholder("Phone");
+                    txtUserNameLog.SetPlaceholder("User Name");
+                    txtPasswordLog.SetPlaceholder("Password");
                 }
                 else
                 {
@@ -88,7 +108,7 @@ namespace QuanLyChiTieuCaNhan
             var userLog = _userService.Login(txtUserNameLog.Text, txtPasswordLog.Text);
             if (userLog != null) 
             {
-                MessageBox.Show("Đăng Nhập Thành Công");
+                MessageBox.Show("Đăng Nhập Thành Công", "Đăng Nhập", MessageBoxButtons.OK);
                 CurrentUser.UserID = userLog.UserID;
                 CurrentUser.Username = userLog.Username;
                 CurrentUser.FullName = userLog.FullName;
@@ -98,7 +118,7 @@ namespace QuanLyChiTieuCaNhan
             }
             else
             {
-                MessageBox.Show("Tài Khoản Hoặc Mật Khẩu Không Chính Xác");
+                MessageBox.Show("Tài Khoản Hoặc Mật Khẩu Không Chính Xác","Đăng Nhập", MessageBoxButtons.RetryCancel);
             }
         }
     }

@@ -8,6 +8,7 @@ using DAL;
 using DAL.enums;
 using System.Data.Entity;
 using System.Runtime.Remoting.Contexts;
+using System.Windows.Forms;
 
 namespace BLL
 {
@@ -78,6 +79,9 @@ namespace BLL
                 return false;
             }
         }
+
+        
+
 
     }
 }

@@ -30,6 +30,18 @@ namespace QuanLyChiTieuCaNhan
             var listBudget = budgetService.GetAllByUser(currentUserId);
             FillCombobox(listCategories);
             BridGrid();
+            
+        }
+        public bool ischecked(DateTime endDate)
+        {
+            DateTime currentDate = DateTime.Now;
+
+            if (currentDate >= endDate)
+            {
+                MessageBox.Show("Có mục trong danh sách đã đến ngày kết thúc. Vui lòng xóa!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return true;
+            }
+            return false;
         }
         public void FillCombobox(List<Categories> listCategories)
         {
@@ -59,7 +71,15 @@ namespace QuanLyChiTieuCaNhan
                 dgvBudget.Rows[index].Cells[3].Value = item.StartDate;
                 dgvBudget.Rows[index].Cells[4].Value = item.EndDate;
                 dgvBudget.Rows[index].Cells[5].Value = item.AmountLimit;
+                if (ischecked(item.EndDate))
+                {
+                    MessageBox.Show($"{item.BudgetName} đã hết hạn.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
+                }
+                else
+                {
+                    Console.WriteLine("Vẫn còn trong hạn.");
+                }
             }
         }
 

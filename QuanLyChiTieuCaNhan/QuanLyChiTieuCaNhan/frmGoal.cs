@@ -216,6 +216,10 @@ namespace QuanLyChiTieuCaNhan
                     decimal Expense = transactionService.GetTotalAmountExpense(currentUserId);
                     decimal currentIncome = Income - Expense;
                     goal.CurrentAmount = currentIncome;
+                    if(goal.DueDate == DateTime.Now)
+                    {
+                        MessageBox.Show("Đã đến ngày phải hoàn thành mục tiêu!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                     // Kiểm tra nếu số tiền hiện tại đạt hoặc vượt mục tiêu
                     if (goal.CurrentAmount >= goal.TargetAmount)
                     {

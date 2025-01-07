@@ -49,5 +49,25 @@ namespace BLL
                 throw new Exception($"Lỗi khi lấy danh mục: {ex.Message}");
             }
         }
+
+        public void insertCategory(int currentUserID)
+        {
+            SpendingManagerDBContext _context = new SpendingManagerDBContext();
+            Categories newCategory1 = new Categories
+            {
+                CategoryName = "Thu Nhập",
+                CategoryType = DAL.enums.CategoryType.Income,
+                UserID = currentUserID
+            };
+            Categories newCategory2 = new Categories
+            {
+                CategoryName = "Chi Tiêu",
+                CategoryType = DAL.enums.CategoryType.Expense,
+                UserID = currentUserID
+            };
+            _context.Categories.Add(newCategory1);
+            _context.Categories.Add(newCategory2);
+            _context.SaveChanges();
+        }
     }
 }

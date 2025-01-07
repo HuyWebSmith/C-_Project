@@ -43,6 +43,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtSoTienGiaoDich = new System.Windows.Forms.TextBox();
             this.dtpNgayThucHien = new System.Windows.Forms.DateTimePicker();
+            this.txtTenGiaoDich = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,7 +51,6 @@
             this.cmbDanhMuc = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtTenGiaoDich = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -148,32 +148,35 @@
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(390, 481);
+            this.btnSua.BackColor = System.Drawing.Color.MediumPurple;
+            this.btnSua.Location = new System.Drawing.Point(384, 472);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(75, 23);
+            this.btnSua.Size = new System.Drawing.Size(81, 40);
             this.btnSua.TabIndex = 12;
             this.btnSua.Text = "Sửa";
-            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(271, 481);
+            this.btnXoa.BackColor = System.Drawing.Color.MediumPurple;
+            this.btnXoa.Location = new System.Drawing.Point(265, 472);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(75, 23);
+            this.btnXoa.Size = new System.Drawing.Size(81, 40);
             this.btnXoa.TabIndex = 11;
             this.btnXoa.Text = "Xóa";
-            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.UseVisualStyleBackColor = false;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(161, 481);
+            this.btnThem.BackColor = System.Drawing.Color.MediumPurple;
+            this.btnThem.Location = new System.Drawing.Point(161, 472);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(75, 23);
+            this.btnThem.Size = new System.Drawing.Size(75, 40);
             this.btnThem.TabIndex = 10;
             this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // rtbGhiChu
@@ -206,6 +209,13 @@
             this.dtpNgayThucHien.Name = "dtpNgayThucHien";
             this.dtpNgayThucHien.Size = new System.Drawing.Size(200, 22);
             this.dtpNgayThucHien.TabIndex = 6;
+            // 
+            // txtTenGiaoDich
+            // 
+            this.txtTenGiaoDich.Location = new System.Drawing.Point(161, 118);
+            this.txtTenGiaoDich.Name = "txtTenGiaoDich";
+            this.txtTenGiaoDich.Size = new System.Drawing.Size(304, 22);
+            this.txtTenGiaoDich.TabIndex = 5;
             // 
             // label5
             // 
@@ -269,13 +279,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1329, 87);
             this.panel1.TabIndex = 3;
-            // 
-            // txtTenGiaoDich
-            // 
-            this.txtTenGiaoDich.Location = new System.Drawing.Point(161, 118);
-            this.txtTenGiaoDich.Name = "txtTenGiaoDich";
-            this.txtTenGiaoDich.Size = new System.Drawing.Size(304, 22);
-            this.txtTenGiaoDich.TabIndex = 5;
             // 
             // frmTransaction
             // 

@@ -233,6 +233,7 @@ namespace QuanLyChiTieuCaNhan
             {
                 DisplayBalance();
                 DisplayExpense();
+                DisplayIncome();
                 var listTransaction = transactionService.GetAllByUser(UserService.CurrentUser.UserID);
                 dgvChiTieuGanDay.Rows.Clear();
                 foreach (var item in listTransaction)

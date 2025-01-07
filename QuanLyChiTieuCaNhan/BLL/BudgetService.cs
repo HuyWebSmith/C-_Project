@@ -78,13 +78,20 @@ namespace BLL
             }
         }
 
-        public Budget GetBudgetByCategoryAndUser(int categoryId, int userId)
+        public decimal? GetBudgetByCategoryAndUser(int categoryId, int userId)
         {
             try
             {
                 SpendingManagerDBContext _context = new SpendingManagerDBContext();
-                return _context.Budgets
-                    .FirstOrDefault(b => b.CategoryID == categoryId && b.UserID == userId);
+                var totalAmount = _context.Budgets
+                .Where(b => b.CategoryID == categoryId && b.UserID == userId)
+                .Sum(b => (decimal?)b.AmountLimit); // Ép kiểu sang nullable decimal
+                if (totalAmount == 0)
+                {
+                    return null;
+                }
+
+                return totalAmount;
             }
             catch (Exception ex)
             {

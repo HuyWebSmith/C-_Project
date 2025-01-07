@@ -284,7 +284,7 @@
             this.btnDangNhap.ForeColor = System.Drawing.Color.White;
             this.btnDangNhap.Image = ((System.Drawing.Image)(resources.GetObject("btnDangNhap.Image")));
             this.btnDangNhap.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDangNhap.Location = new System.Drawing.Point(0, 0);
+            this.btnDangNhap.Location = new System.Drawing.Point(-3, -7);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnDangNhap.Size = new System.Drawing.Size(298, 91);

@@ -88,29 +88,35 @@ namespace QuanLyChiTieuCaNhan
                     UserID = CurrentUser.UserID
                 };
 
-                var budget = budgetService.GetBudgetByCategoryAndUser(transaction.CategoryID, transaction.UserID);
-                if (budget != null) 
+                decimal? budget = budgetService.GetBudgetByCategoryAndUser(transaction.CategoryID, transaction.UserID);
+                var tongSoDu = transactionService.GetTotalExpensesByCategoryAndUser(transaction.CategoryID, transaction.UserID);
+                if (budget == null)
                 {
-                    var tongSoDu = transactionService.GetTotalExpensesByCategoryAndUser(transaction.CategoryID, transaction.UserID);
-                    if (tongSoDu + transaction.Amount > budget.AmountLimit)
-                    {
+                    transactionService.InsertTransaction(transaction);
+                    BridGrid(); // Làm mới dữ liệu trên lưới
+                    MessageBox.Show("Giao dịch đã được thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
 
-                        var result = MessageBox.Show(
-                            "Số tiền giao dịch vượt quá ngân sách. Bạn có muốn tiếp tục thêm giao dịch không?",
-                            "Cảnh báo vượt ngân sách",
-                            MessageBoxButtons.YesNo,
-                            MessageBoxIcon.Warning
-                        );
-
-                        if (result == DialogResult.No)
-                        {
-                            return; 
-                        }
-                    }
                 }
+                if (tongSoDu + transaction.Amount > budget)
+                {
+
+                var result = MessageBox.Show(
+                    "Số tiền giao dịch vượt quá ngân sách. Bạn có muốn tiếp tục thêm giao dịch không?",
+                    "Cảnh báo vượt ngân sách",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (result == DialogResult.No)
+                {
+                    return; 
+                }
+                }   
 
                 transactionService.InsertTransaction(transaction);
                 BridGrid();
+                MessageBox.Show("Giao dịch đã được thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -214,17 +220,52 @@ namespace QuanLyChiTieuCaNhan
                             Note = rtbGhiChu.Text,
                             UserID = CurrentUser.UserID
                         };
-                        bool isUpdate = transactionService.UpdateTransaction(newTransaction);
+                        decimal? budget = budgetService.GetBudgetByCategoryAndUser(newTransaction.CategoryID, newTransaction.UserID);
+                        var tongSoDu = transactionService.GetTotalExpensesByCategoryAndUser(newTransaction.CategoryID, newTransaction.UserID);
+                        if (tongSoDu + newTransaction.Amount > budget)
+                        {
+
+                            var results = MessageBox.Show(
+                                "Số tiền giao dịch vượt quá ngân sách. Bạn có muốn tiếp tục sửa giao dịch không?",
+                                "Cảnh báo vượt ngân sách",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Warning
+                            );
+                            
+                            if (results == DialogResult.No)
+                            {
+                                return;
+                            }
+                            else
+                            {
+                                bool isUpdate = transactionService.UpdateTransaction(newTransaction);
+
+                                if (isUpdate)
+                                {
+
+                                    BridGrid();
+                                    MessageBox.Show("Cập nhật thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Cập nhật thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            bool isUpdate = transactionService.UpdateTransaction(newTransaction);
 
                         if (isUpdate)
                         {
-
+                            
                             BridGrid();
                             MessageBox.Show("Cập nhật thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
                             MessageBox.Show("Cập nhật thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                         }
                     }
                 }

@@ -118,5 +118,31 @@ namespace BLL
                 return false;
             }
         }
+
+        public List<Transaction> GetTransactionsForCurrentMonth(int userId)
+        {
+            try
+            {
+                SpendingManagerDBContext context = new SpendingManagerDBContext();
+                // Lấy tháng và năm hiện tại
+                int currentMonth = DateTime.Now.Month;
+                int currentYear = DateTime.Now.Year;
+
+                // Lọc giao dịch theo tháng và năm hiện tại
+                var transactions = context.Transactions
+                    .Where(t => t.UserID == userId &&
+                                t.Date.Month == currentMonth &&
+                                t.Date.Year == currentYear)
+                    .OrderBy(t => t.Date) // Sắp xếp theo ngày
+                    .ToList();
+
+                return transactions;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return new List<Transaction>();
+            }
+        }
     }
 }
