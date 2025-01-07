@@ -97,12 +97,6 @@
     <Compile Include="frmBudget.Designer.cs">
       <DependentUpon>frmBudget.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChonNgayReport.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmChonNgayReport.Designer.cs">
-      <DependentUpon>frmChonNgayReport.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmGoal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,9 +126,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmBudget.resx">
       <DependentUpon>frmBudget.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmChonNgayReport.resx">
-      <DependentUpon>frmChonNgayReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGoal.resx">
       <DependentUpon>frmGoal.cs</DependentUpon>

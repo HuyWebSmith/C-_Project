@@ -69,6 +69,8 @@
             this.lblDate = new System.Windows.Forms.Label();
             this.curentDaytimer = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.sidebar.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menuBtn)).BeginInit();
@@ -80,7 +82,11 @@
             this.panel8.SuspendLayout();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTieuGanDay)).BeginInit();
+            this.panel10.SuspendLayout();
+            this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // sidebar
@@ -346,7 +352,7 @@
             this.lblIncome.AutoSize = true;
             this.lblIncome.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIncome.ForeColor = System.Drawing.Color.LimeGreen;
-            this.lblIncome.Location = new System.Drawing.Point(42, 273);
+            this.lblIncome.Location = new System.Drawing.Point(100, 336);
             this.lblIncome.Name = "lblIncome";
             this.lblIncome.Size = new System.Drawing.Size(128, 45);
             this.lblIncome.TabIndex = 7;
@@ -357,7 +363,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.LimeGreen;
-            this.label2.Location = new System.Drawing.Point(45, 209);
+            this.label2.Location = new System.Drawing.Point(103, 272);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(105, 28);
             this.label2.TabIndex = 6;
@@ -368,7 +374,7 @@
             this.lblExpense.AutoSize = true;
             this.lblExpense.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblExpense.ForeColor = System.Drawing.Color.Red;
-            this.lblExpense.Location = new System.Drawing.Point(53, 434);
+            this.lblExpense.Location = new System.Drawing.Point(111, 497);
             this.lblExpense.Name = "lblExpense";
             this.lblExpense.Size = new System.Drawing.Size(128, 45);
             this.lblExpense.TabIndex = 5;
@@ -379,7 +385,7 @@
             this.lblBalance.AutoSize = true;
             this.lblBalance.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBalance.ForeColor = System.Drawing.Color.Black;
-            this.lblBalance.Location = new System.Drawing.Point(42, 98);
+            this.lblBalance.Location = new System.Drawing.Point(100, 161);
             this.lblBalance.Name = "lblBalance";
             this.lblBalance.Size = new System.Drawing.Size(128, 45);
             this.lblBalance.TabIndex = 4;
@@ -390,7 +396,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(56, 370);
+            this.label4.Location = new System.Drawing.Point(114, 433);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 28);
             this.label4.TabIndex = 3;
@@ -401,7 +407,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(45, 40);
+            this.label3.Location = new System.Drawing.Point(103, 103);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(112, 28);
             this.label3.TabIndex = 2;
@@ -458,25 +464,27 @@
             // panel9
             // 
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel9.Location = new System.Drawing.Point(30, 29);
+            this.panel9.Location = new System.Drawing.Point(88, 92);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(420, 132);
+            this.panel9.Size = new System.Drawing.Size(512, 132);
             this.panel9.TabIndex = 8;
             // 
             // panel10
             // 
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel10.Location = new System.Drawing.Point(30, 197);
+            this.panel10.Controls.Add(this.pictureBox3);
+            this.panel10.Location = new System.Drawing.Point(88, 260);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(420, 138);
+            this.panel10.Size = new System.Drawing.Size(512, 138);
             this.panel10.TabIndex = 9;
             // 
             // panel11
             // 
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel11.Location = new System.Drawing.Point(30, 358);
+            this.panel11.Controls.Add(this.pictureBox4);
+            this.panel11.Location = new System.Drawing.Point(88, 421);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(420, 138);
+            this.panel11.Size = new System.Drawing.Size(512, 138);
             this.panel11.TabIndex = 10;
             // 
             // pictureBox1
@@ -523,6 +531,26 @@
             // 
             this.curentDaytimer.Tick += new System.EventHandler(this.curentDaytimer_Tick);
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(421, 28);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(64, 76);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 12;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(421, 31);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(74, 68);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 13;
+            this.pictureBox4.TabStop = false;
+            // 
             // frmBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -549,7 +577,11 @@
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTieuGanDay)).EndInit();
+            this.panel10.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -596,5 +628,7 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

@@ -76,5 +76,4 @@ C:\Users\nquan\Desktop\.NET\QuanLyChiTieuCaNhan\QuanLyChiTieuCaNhan\bin\Debug\zh
 C:\Users\nquan\Desktop\.NET\QuanLyChiTieuCaNhan\QuanLyChiTieuCaNhan\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\nquan\Desktop\.NET\QuanLyChiTieuCaNhan\QuanLyChiTieuCaNhan\obj\Debug\QuanLyChiTieuCaNhan.frmReport.resources
 C:\Users\nquan\Desktop\.NET\QuanLyChiTieuCaNhan\QuanLyChiTieuCaNhan\obj\Debug\QuanLyChiTieuCaNhan.frmBudget.resources
-C:\Users\nquan\Desktop\.NET\QuanLyChiTieuCaNhan\QuanLyChiTieuCaNhan\obj\Debug\QuanLyChiTieuCaNhan.frmChonNgayReport.resources
 C:\Users\nquan\Desktop\.NET\QuanLyChiTieuCaNhan\QuanLyChiTieuCaNhan\obj\Debug\QuanLyChiTieuCaNhan.frmGoal.resources

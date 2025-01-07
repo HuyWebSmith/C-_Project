@@ -158,6 +158,7 @@ namespace QuanLyChiTieuCaNhan
                 btnLogOut.Visible = false;
                 lblBalance.Text = $"N/A";
                 lblExpense.Text = $"N/A";
+                lblIncome.Text = $"N/A";
                 dgvChiTieuGanDay.Rows.Clear();
             }   
         }
