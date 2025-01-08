@@ -211,73 +211,82 @@ namespace QuanLyChiTieuCaNhan
                     DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn cập nhật hàng này?", "Xác Nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
                     {
-                        if (cmbDanhMuc.SelectedValue == null)
+                        // Kiểm tra số tiền giao dịch hợp lệ
+                        if (string.IsNullOrEmpty(txtSoTienGiaoDich.Text) || !decimal.TryParse(txtSoTienGiaoDich.Text, out decimal amount))
                         {
-                            MessageBox.Show("Vui lòng chọn danh mục hợp lệ.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Vui lòng nhập một số hợp lệ cho số tiền giao dịch.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
+
+                        // Kiểm tra danh mục hợp lệ
+                        if (cmbDanhMuc.SelectedValue == null || (int)cmbDanhMuc.SelectedValue == 0)
+                        {
+                            MessageBox.Show("Vui lòng chọn danh mục.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+
+                        
+
+                        // Tạo đối tượng giao dịch mới
                         Transaction newTransaction = new Transaction
                         {
-                            CategoryID = (int)cmbDanhMuc.SelectedValue,
                             TransactionID = currentTransactionId,
+                            CategoryID = (int)cmbDanhMuc.SelectedValue,
                             TransactionName = txtTenGiaoDich.Text,
-                            Amount = decimal.Parse(txtSoTienGiaoDich.Text),
+                            Amount = amount,
                             Date = DateTime.Now,
                             Note = rtbGhiChu.Text,
                             UserID = CurrentUser.UserID
                         };
-                        decimal? budget = budgetService.GetBudgetByCategoryAndUser(newTransaction.CategoryID, newTransaction.UserID);
-                        var tongSoDu = transactionService.GetTotalExpensesByCategoryAndUser(newTransaction.CategoryID, newTransaction.UserID);
-                        if (tongSoDu + newTransaction.Amount > budget)
-                        {
 
+                        // Lấy ngân sách và chi tiêu hiện tại của danh mục
+                        decimal budget = budgetService.GetBudgetByCategoryAndUser(newTransaction.CategoryID, newTransaction.UserID);
+                        decimal Income = transactionService.GetTotalAmountIncome(currentUserId);
+                        decimal Expense = transactionService.GetTotalAmountExpense(currentUserId);
+                        decimal total = Income - Expense;
+
+                        // Kiểm tra nếu vượt ngân sách
+                        if (budget == 0)
+                        {
                             var results = MessageBox.Show(
-                                "Số tiền giao dịch vượt quá ngân sách. Bạn có muốn tiếp tục sửa giao dịch không?",
-                                "Cảnh báo vượt ngân sách",
+                                "Danh mục này chưa được thiết lập ngân sách. Bạn có chắc muốn sửa giao dịch không?",
+                                "Cảnh báo",
                                 MessageBoxButtons.YesNo,
-                                MessageBoxIcon.Warning
-                            );
-                            
+                                MessageBoxIcon.Warning);
+
                             if (results == DialogResult.No)
                             {
                                 return;
                             }
-                            else
-                            {
-                                bool isUpdate = transactionService.UpdateTransaction(newTransaction);
-
-                                if (isUpdate)
-                                {
-
-                                    BridGrid();
-                                    MessageBox.Show("Cập nhật thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Cập nhật thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
-                            }
                         }
-                        else
+                        else if (amount + total > budget)
                         {
-                            bool isUpdate = transactionService.UpdateTransaction(newTransaction);
+                            MessageBox.Show(
+                                $"Số tiền giao dịch mới sẽ vượt ngân sách ({budget:C}). Bạn có muốn tiếp tục sửa giao dịch không?",
+                                "Cảnh báo vượt ngân sách",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Warning
+                            );
+                            return;
+                        }
+
+                        // Thực hiện cập nhật
+                        bool isUpdate = transactionService.UpdateTransaction(newTransaction);
 
                         if (isUpdate)
                         {
-                            
-                            BridGrid();
+                            BridGrid(); 
                             MessageBox.Show("Cập nhật thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
                             MessageBox.Show("Cập nhật thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                        }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Vui lòng chọn một hàng để Cập nhật.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Vui lòng chọn một hàng để cập nhật.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
