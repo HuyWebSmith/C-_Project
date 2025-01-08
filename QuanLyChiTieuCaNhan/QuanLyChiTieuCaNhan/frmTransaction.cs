@@ -225,7 +225,6 @@ namespace QuanLyChiTieuCaNhan
                             return;
                         }
 
-                        
 
                         // Tạo đối tượng giao dịch mới
                         Transaction newTransaction = new Transaction
@@ -261,15 +260,30 @@ namespace QuanLyChiTieuCaNhan
                         }
                         else if (amount + total > budget)
                         {
-                            MessageBox.Show(
-                                $"Số tiền giao dịch mới sẽ vượt ngân sách ({budget:C}). Bạn có muốn tiếp tục sửa giao dịch không?",
+                            var result2 = MessageBox.Show(
+                                $"Số tiền giao dịch mới sẽ vượt ngân sách ({budget:C}). Bạn vẫn muốn tiếp tục sửa giao dịch không?",
                                 "Cảnh báo vượt ngân sách",
                                 MessageBoxButtons.YesNo,
                                 MessageBoxIcon.Warning
                             );
-                            return;
-                        }
+                            if (result2 == DialogResult.Yes)
+                            {
+                                bool isUpdate1 = transactionService.UpdateTransaction(newTransaction);
 
+                                if (isUpdate1)
+                                {
+                                    BridGrid();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Cập nhật thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                            else
+                            {
+                                return;
+                            }
+                        }
                         // Thực hiện cập nhật
                         bool isUpdate = transactionService.UpdateTransaction(newTransaction);
 
