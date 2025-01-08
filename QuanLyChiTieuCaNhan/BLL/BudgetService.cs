@@ -82,16 +82,15 @@ namespace BLL
         {
             try
             {
-                using (var _context = new SpendingManagerDBContext())
-                {
-                    // Lấy ngân sách của người dùng cho danh mục cụ thể, trả về 0 nếu không có ngân sách
-                    var budget = _context.Budgets
-                        .Where(b => b.CategoryID == categoryId && b.UserID == userId)
-                        .Select(b => b.AmountLimit)
-                        .FirstOrDefault(); // Lấy giá trị đầu tiên, hoặc 0 nếu không có ngân sách
+            SpendingManagerDBContext _context = new SpendingManagerDBContext();
+            // Lấy ngân sách của người dùng cho danh mục cụ thể, trả về 0 nếu không có ngân sách
+            var budget = _context.Budgets
+                .Where(b => b.CategoryID == categoryId && b.UserID == userId)
+                .Sum(b => b.AmountLimit);
+                    // Lấy giá trị đầu tiên, hoặc 0 nếu không có ngân sách
 
-                    return budget;
-                }
+            return budget;
+
             }
             catch (Exception ex)
             {

@@ -172,7 +172,6 @@ namespace QuanLyChiTieuCaNhan
             decimal Expense = transactionService.GetTotalAmountExpense(currentUserId);
             decimal total = Income - Expense;
 
-
             if (total < 0)
             {
                 lblBalance.Text = $"-{total:c}" + "đ";

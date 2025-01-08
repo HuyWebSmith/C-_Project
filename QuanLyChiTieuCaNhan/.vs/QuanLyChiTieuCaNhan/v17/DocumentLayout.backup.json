@@ -15,6 +15,14 @@
       "RelativeMoniker": "D:0:0:{5F2DB7FA-1E3E-4099-90D0-F6D146E89ED9}|BLL\\BLL.csproj|solutionrelative:bll\\budgetservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{857399E5-A062-4287-9C9A-A81C499EA84C}|QuanLyChiTieuCaNhan\\GUI.csproj|c:\\users\\nquan\\desktop\\.net\\quanlychitieucanhan\\quanlychitieucanhan\\frmbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{857399E5-A062-4287-9C9A-A81C499EA84C}|QuanLyChiTieuCaNhan\\GUI.csproj|solutionrelative:quanlychitieucanhan\\frmbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{857399E5-A062-4287-9C9A-A81C499EA84C}|QuanLyChiTieuCaNhan\\GUI.csproj|c:\\users\\nquan\\desktop\\.net\\quanlychitieucanhan\\quanlychitieucanhan\\frmbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{857399E5-A062-4287-9C9A-A81C499EA84C}|QuanLyChiTieuCaNhan\\GUI.csproj|solutionrelative:quanlychitieucanhan\\frmbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{857399E5-A062-4287-9C9A-A81C499EA84C}|QuanLyChiTieuCaNhan\\GUI.csproj|C:\\Users\\nquan\\Desktop\\.NET\\QuanLyChiTieuCaNhan\\quanlychitieucanhan\\frmbudget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{857399E5-A062-4287-9C9A-A81C499EA84C}|QuanLyChiTieuCaNhan\\GUI.csproj|solutionrelative:quanlychitieucanhan\\frmbudget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -30,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,19 +62,45 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmBase.cs",
+              "DocumentMoniker": "C:\\Users\\nquan\\Desktop\\.NET\\QuanLyChiTieuCaNhan\\QuanLyChiTieuCaNhan\\frmBase.cs",
+              "RelativeDocumentMoniker": "QuanLyChiTieuCaNhan\\frmBase.cs",
+              "ToolTip": "C:\\Users\\nquan\\Desktop\\.NET\\QuanLyChiTieuCaNhan\\QuanLyChiTieuCaNhan\\frmBase.cs",
+              "RelativeToolTip": "QuanLyChiTieuCaNhan\\frmBase.cs",
+              "ViewState": "AgIAAH0AAAAAAAAAAAAuwLIAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-08T02:53:47.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmBase.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\nquan\\Desktop\\.NET\\QuanLyChiTieuCaNhan\\QuanLyChiTieuCaNhan\\frmBase.cs",
+              "RelativeDocumentMoniker": "QuanLyChiTieuCaNhan\\frmBase.cs",
+              "ToolTip": "C:\\Users\\nquan\\Desktop\\.NET\\QuanLyChiTieuCaNhan\\QuanLyChiTieuCaNhan\\frmBase.cs [Design]",
+              "RelativeToolTip": "QuanLyChiTieuCaNhan\\frmBase.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-08T02:53:45.704Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "TransactionService.cs",
               "DocumentMoniker": "C:\\Users\\nquan\\Desktop\\.NET\\QuanLyChiTieuCaNhan\\BLL\\TransactionService.cs",
               "RelativeDocumentMoniker": "BLL\\TransactionService.cs",
               "ToolTip": "C:\\Users\\nquan\\Desktop\\.NET\\QuanLyChiTieuCaNhan\\BLL\\TransactionService.cs",
               "RelativeToolTip": "BLL\\TransactionService.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAmwCIAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T00:23:03.019Z"
+              "WhenOpened": "2025-01-08T00:23:03.019Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "frmBudget.cs",
               "DocumentMoniker": "C:\\Users\\nquan\\Desktop\\.NET\\QuanLyChiTieuCaNhan\\QuanLyChiTieuCaNhan\\frmBudget.cs",
               "RelativeDocumentMoniker": "QuanLyChiTieuCaNhan\\frmBudget.cs",
@@ -78,7 +112,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "frmBudget.cs [Design]",
               "DocumentMoniker": "C:\\Users\\nquan\\Desktop\\.NET\\QuanLyChiTieuCaNhan\\QuanLyChiTieuCaNhan\\frmBudget.cs",
               "RelativeDocumentMoniker": "QuanLyChiTieuCaNhan\\frmBudget.cs",
@@ -95,9 +129,10 @@
               "RelativeDocumentMoniker": "BLL\\BudgetService.cs",
               "ToolTip": "C:\\Users\\nquan\\Desktop\\.NET\\QuanLyChiTieuCaNhan\\BLL\\BudgetService.cs",
               "RelativeToolTip": "BLL\\BudgetService.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAmwFAAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAFAAAAAAAAAAAAA+wFkAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T00:14:57.755Z"
+              "WhenOpened": "2025-01-08T00:14:57.755Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -107,7 +142,7 @@
               "RelativeDocumentMoniker": "QuanLyChiTieuCaNhan\\frmTransaction.cs",
               "ToolTip": "C:\\Users\\nquan\\Desktop\\.NET\\QuanLyChiTieuCaNhan\\QuanLyChiTieuCaNhan\\frmTransaction.cs*",
               "RelativeToolTip": "QuanLyChiTieuCaNhan\\frmTransaction.cs*",
-              "ViewState": "AgIAAA0BAAAAAAAAAAAiwBIBAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAAAGIAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-08T00:11:01.476Z",
               "EditorCaption": ""

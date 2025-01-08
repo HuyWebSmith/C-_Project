@@ -84,9 +84,8 @@ namespace QuanLyChiTieuCaNhan
                     return;
                 }
                 decimal budget = budgetService.GetBudgetByCategoryAndUser((int)cmbDanhMuc.SelectedValue, currentUserId);
-                decimal Income = transactionService.GetTotalAmountIncome(currentUserId);
                 decimal Expense = transactionService.GetTotalAmountExpense(currentUserId);
-                decimal total = Income - Expense;
+
                 if (budget == 0)
                 {
                     var result = MessageBox.Show(
@@ -100,7 +99,7 @@ namespace QuanLyChiTieuCaNhan
                         return; 
                     }
                 }
-                else if (total + amount > budget)
+                else if (Expense + amount > budget)
                 {
                     MessageBox.Show($"Số tiền giao dịch vượt quá ngân sách! Ngân sách tối đa cho danh mục là {budget:C}.",
                         "Cảnh báo",
