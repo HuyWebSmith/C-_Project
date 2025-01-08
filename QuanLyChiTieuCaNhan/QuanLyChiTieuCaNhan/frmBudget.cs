@@ -166,7 +166,7 @@ namespace QuanLyChiTieuCaNhan
                             AmountLimit = decimal.Parse(txtGioiHanChiTieu.Text),
                             UserID = CurrentUser.UserID
                         };
-                        bool isUpdate = budgetService.UpdateTransaction(newBudget);
+                        bool isUpdate = budgetService.UpdateBudget(newBudget);
 
                         if (isUpdate)
                         {

@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using BLL;
 using DAL;
 using DAL.Models;
+using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
 
 namespace QuanLyChiTieuCaNhan
 {
@@ -70,7 +71,6 @@ namespace QuanLyChiTieuCaNhan
         {
             try
             {
-                // Kiểm tra xem giá trị nhập vào có hợp lệ không
 
                 if (string.IsNullOrEmpty(txtSoTienGiaoDich.Text) || !decimal.TryParse(txtSoTienGiaoDich.Text, out decimal amount))
                 {
@@ -83,19 +83,45 @@ namespace QuanLyChiTieuCaNhan
                     MessageBox.Show("Vui lòng chọn danh mục .", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+                decimal budget = budgetService.GetBudgetByCategoryAndUser((int)cmbDanhMuc.SelectedValue, currentUserId);
+                decimal Income = transactionService.GetTotalAmountIncome(currentUserId);
+                decimal Expense = transactionService.GetTotalAmountExpense(currentUserId);
+                decimal total = Income - Expense;
+                if (budget == 0)
+                {
+                    var result = MessageBox.Show(
+                        "Danh mục này chưa được thiết lập ngân sách. Bạn có chắc muốn thêm giao dịch không?",
+                        "Cảnh báo",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning);
+
+                    if (result == DialogResult.No)
+                    {
+                        return; 
+                    }
+                }
+                else if (total + amount > budget)
+                {
+                    MessageBox.Show($"Số tiền giao dịch vượt quá ngân sách! Ngân sách tối đa cho danh mục là {budget:C}.",
+                        "Cảnh báo",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    return;
+                }
+
+
                 Transaction transaction = new Transaction
                 {
                     CategoryID = (int)cmbDanhMuc.SelectedValue,
                     TransactionName = txtTenGiaoDich.Text,
-                    Amount = decimal.Parse(txtSoTienGiaoDich.Text),
+                    Amount = amount,
                     Date = DateTime.Now,
                     Note = rtbGhiChu.Text,
-                    UserID = CurrentUser.UserID
+                    UserID = currentUserId
                 };
 
-                
                 transactionService.InsertTransaction(transaction);
-                BridGrid(); // Làm mới dữ liệu trên lưới
+                BridGrid();
                 MessageBox.Show("Giao dịch đã được thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)

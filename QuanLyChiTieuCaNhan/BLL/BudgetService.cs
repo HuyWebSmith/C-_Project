@@ -52,7 +52,7 @@ namespace BLL
             }
         }
 
-        public bool UpdateTransaction(Budget budget)
+        public bool UpdateBudget(Budget budget)
         {
             try
             {
